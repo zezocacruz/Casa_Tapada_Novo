@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa da Tapada | Experiência Rural</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body data-color="#ffffff">
+
+    <div class="top-bar">
+        <a href="https://www.instagram.com/casadatapadaturismo/" target="_blank">
+            <svg class="insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.6" stroke="#fff" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.15" fill="#fff"/></svg>
+            Instagram @casadatapadaturismo
+        </a>
+    </div>
+
+    <nav class="main-nav">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="imagens/logo.jpeg" alt="Logo Casa da Tapada" class="site-logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="planta.html">Planta</a></li>
+            <li><a href="reservar.html">Reservar</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero section" data-color="#1a1a1a">
+        <video autoplay muted loop playsinline poster="imagens/hero.jpeg" id="hero-video">
+            <source src="imagens/video-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Casa da Tapada</h1>
+            <p>Onde o tempo para e a natureza respira na Atalaia do Campo.</p>
+            <a href="#intro" class="btn-scroll">Viver a Experiência</a>
+        </div>
+    </header>
+
+    <section id="intro" class="section-split section" data-color="#fdfbf7">
+        <div class="split-text">
+            <h2>Um refúgio com alma</h2>
+            <p>Na Casa da Tapada, a beleza está na simplicidade. Acorde com o som do campo, sinta a brisa da manhã e termine o dia sob um céu estrelado único na nossa região. Um espaço pensado para quem procura desconectar e reencontrar a paz.</p>
+        </div>
+        <div class="split-image">
+            <img src="imagens/foto1.jpeg" alt="Refúgio Rural" loading="lazy">
+        </div>
+    </section>
+
+    <section class="section-activities section" data-color="#ffffff">
+        <div class="container-atividades">
+            <h2 style="font-family:'Playfair Display'; color:#b58d3d; font-size: 2.8rem; margin-bottom: 50px; text-align: center;">Viver a Atalaia do Campo</h2>
+            <div class="grid-atividades">
+                <div class="atividade">
+                    <img src="imagens/foto2.jpeg" alt="Trilhos" loading="lazy">
+                    <div class="atividade-info">
+                        <h3>Trilhos Naturais</h3>
+                        <p>Caminhadas inesquecíveis entre vales e montanhas.</p>
+                    </div>
+                </div>
+                <div class="atividade">
+                    <img src="imagens/foto3.jpeg" alt="Gastronomia" loading="lazy">
+                    <div class="atividade-info">
+                        <h3>Gastronomia Beirã</h3>
+                        <p>Sabores autênticos que contam a história da nossa terra.</p>
+                    </div>
+                </div>
+                <div class="atividade">
+                    <img src="imagens/foto4.jpeg" alt="Vilas" loading="lazy">
+                    <div class="atividade-info">
+                        <h3>Vilas Históricas</h3>
+                        <p>Explore o património único da Beira Baixa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-testimonials section" data-color="#f4f1ea">
+        <div class="testimonial-container">
+            <h2>O que dizem os nossos hóspedes</h2>
+            <div class="testimonial-card">
+                <p>"Um lugar mágico onde o silêncio é a melhor música que podemos ouvir. A Carla é de uma hospitalidade extrema. Voltaremos com toda a certeza para recarregar energias."</p>
+                <span>- Maria João, Lisboa</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-weather section" data-color="#ffffff">
+        <div class="weather-container">
+            <h3 style="font-family:'Playfair Display'; color:#b58d3d; font-size: 2.2rem; text-align: center;">Prepare a sua visita</h3>
+            <div class="widget-box">
+                <a class="weatherwidget-io" href="https://forecast7.com/en/40d05n7d43/atalaia-do-campo/" data-label_1="ATALAIA DO CAMPO" data-label_2="WEATHER" data-theme="original" data-basecolor="#d4a373" >ATALAIA DO CAMPO WEATHER</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-full-grid section" data-color="#e8e2d6">
+        <div class="full-grid">
+            <a href="galeria.html" class="card-full card1"><div class="overlay"><h3>Natureza Pura</h3></div></a>
+            <a href="historia.html" class="card-full card2"><div class="overlay"><h3>Tradição Viva</h3></div></a>
+            <a href="sobre.html" class="card-full card3"><div class="overlay"><h3>Comunidade</h3></div></a>
+        </div>
+    </section>
+
+    <footer class="footer-dark section" data-color="#1a1a1a">
+        <h2>Pronto para viver esta experiência?</h2>
+        <a href="reservar.html" class="btn-footer">Consultar Disponibilidade</a>
+        <p style="margin-top: 50px; opacity: 0.5; font-size: 0.8rem;">© 2026 Casa da Tapada - Atalaia do Campo, Fundão</p>
+    </footer>
+
+    <a href="https://wa.me/351927539498" class="whatsapp-btn" target="_blank" aria-label="Contactar via WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M23.6 8.4c-2-2-4.7-3.1-7.6-3.1-5.9 0-10.7 4.8-10.7 10.7 0 1.9.5 3.7 1.4 5.3L5 27l5.9-1.5c1.5.8 3.2 1.3 5 1.3 5.9 0 10.7-4.8 10.7-10.7 0-2.9-1.1-5.6-3-7.6zm-7.6 16.4c-1.6 0-3.1-.4-4.5-1.2l-.3-.2-3.4.9.9-3.3-.2-.3c-.9-1.4-1.3-3-1.3-4.7 0-4.9 4-8.9 8.9-8.9 2.4 0 4.6.9 6.3 2.6 1.7 1.7 2.6 3.9 2.6 6.3-.1 4.9-4.1 8.8-9 8.8zm4.9-6.6c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3 0-.1-.2-.2-.4-.3z"/></svg>
+    </a>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.body.style.backgroundColor = entry.target.getAttribute('data-color');
+                }
+            });
+        }, { threshold: 0.5 });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>

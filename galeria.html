@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria | Casa da Tapada</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="https://www.instagram.com/casadatapadaturismo/" target="_blank">
+            <svg class="insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.6" stroke="#fff" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.15" fill="#fff"/></svg>
+            Instagram @casadatapadaturismo
+        </a>
+    </div>
+
+    <nav class="main-nav">
+        <div class="logo-container">
+            <a href="index.html"><img src="imagens/logo.jpeg" alt="Logo" class="site-logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="planta.html">Planta</a></li>
+            <li><a href="reservar.html">Reservar</a></li>
+        </ul>
+    </nav>
+
+    <section class="conteudo-interno">
+        <h1>Galeria</h1>
+        <p>Conheça os recantos e encantos da nossa casa.</p>
+        
+        <div class="grid-galeria">
+            <img src="imagens/foto1.jpeg" alt="Foto 1" loading="lazy">
+            <img src="imagens/foto2.jpeg" alt="Foto 2" loading="lazy">
+            <img src="imagens/foto3.jpeg" alt="Foto 3" loading="lazy">
+            <img src="imagens/foto4.jpeg" alt="Foto 4" loading="lazy">
+            <img src="imagens/destaque1.jpeg" alt="Natureza" loading="lazy">
+            <img src="imagens/destaque2.jpeg" alt="Interior" loading="lazy">
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <span class="lightbox-arrow lightbox-prev" id="lightboxPrev">&#10094;</span>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <span class="lightbox-arrow lightbox-next" id="lightboxNext">&#10095;</span>
+    </div>
+
+    <script>
+        const galeriaImgs = document.querySelectorAll('.grid-galeria img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        let indiceAtual = 0;
+
+        function abrirLightbox(indice) {
+            indiceAtual = indice;
+            lightboxImg.src = galeriaImgs[indiceAtual].src;
+            lightboxImg.alt = galeriaImgs[indiceAtual].alt;
+            lightbox.classList.add('ativo');
+        }
+
+        function fecharLightbox() {
+            lightbox.classList.remove('ativo');
+        }
+
+        function imagemSeguinte() {
+            indiceAtual = (indiceAtual + 1) % galeriaImgs.length;
+            lightboxImg.src = galeriaImgs[indiceAtual].src;
+            lightboxImg.alt = galeriaImgs[indiceAtual].alt;
+        }
+
+        function imagemAnterior() {
+            indiceAtual = (indiceAtual - 1 + galeriaImgs.length) % galeriaImgs.length;
+            lightboxImg.src = galeriaImgs[indiceAtual].src;
+            lightboxImg.alt = galeriaImgs[indiceAtual].alt;
+        }
+
+        galeriaImgs.forEach((img, indice) => {
+            img.addEventListener('click', () => abrirLightbox(indice));
+        });
+
+        document.getElementById('lightboxClose').addEventListener('click', fecharLightbox);
+        document.getElementById('lightboxNext').addEventListener('click', imagemSeguinte);
+        document.getElementById('lightboxPrev').addEventListener('click', imagemAnterior);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) fecharLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('ativo')) return;
+            if (e.key === 'Escape') fecharLightbox();
+            if (e.key === 'ArrowRight') imagemSeguinte();
+            if (e.key === 'ArrowLeft') imagemAnterior();
+        });
+    </script>
+
+</body>
+</html>
