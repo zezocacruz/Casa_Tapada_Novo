@@ -9,13 +9,6 @@
 </head>
 <body data-color="#ffffff">
 
-    <div class="top-bar">
-        <a href="https://www.instagram.com/casadatapadaturismo/" target="_blank">
-            <svg class="insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.6" stroke="#fff" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.15" fill="#fff"/></svg>
-            Instagram @casadatapadaturismo
-        </a>
-    </div>
-
     <nav class="main-nav">
         <div class="logo-container">
             <a href="index.html">
@@ -23,7 +16,7 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html" class="active">Início</a></li>
             <li><a href="historia.html">História</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="galeria.html">Galeria</a></li>
@@ -85,12 +78,165 @@
     <section class="section-testimonials section" data-color="#f4f1ea">
         <div class="testimonial-container">
             <h2>O que dizem os nossos hóspedes</h2>
-            <div class="testimonial-card">
-                <p>"Um lugar mágico onde o silêncio é a melhor música que podemos ouvir. A Carla é de uma hospitalidade extrema. Voltaremos com toda a certeza para recarregar energias."</p>
-                <span>- Maria João, Lisboa</span>
+            <p class="testi-fonte">
+                <svg width="16" height="16" viewBox="0 0 24 24" style="vertical-align:-3px;"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.4H12v4.5h6.5c-.3 1.5-1.1 2.7-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-3c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1C3.4 21.3 7.4 24 12 24z"/><path fill="#FBBC05" d="M5.4 14.4c-.2-.7-.4-1.4-.4-2.4s.1-1.6.4-2.4V6.5H1.4C.5 8.2 0 10.1 0 12s.5 3.8 1.4 5.5l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.2 15.2 0 12 0 7.4 0 3.4 2.7 1.4 6.5l4 3.1C6.3 6.9 8.9 4.8 12 4.8z"/></svg>
+                Avaliações reais do Google
+            </p>
+            <div class="testimonial-carousel">
+                <button class="testi-arrow testi-prev" id="testiPrev" aria-label="Avaliação anterior">&#10094;</button>
+                <div class="testimonial-viewport">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Só tenho a agradecer os dias maravilhosos que passámos no vosso cantinho do paraíso. Aconselho muito a quem queira mesmo desligar, da correria do dia a dia. Aqui o tempo passa devagar, conseguimos apreciar verdadeiramente a Natureza, e toda a sua envolvência. Acordar de manhã com o som dos passarinhos, é mágico. À noite contemplar o céu estrelado, é lindo. E poder ter o privilégio, de colher pêssegos diretamente da árvore e comer, que delícia. E o que dizer da casa, tão linda, tão mimosa, com tantos pormenores, que se vê nitidamente que existe ali muito amor, muita dedicação. Á nossa chegada, mal abrimos a porta, que cheirinho a limpeza, dou muita importância a esse pormenor. E a Carla e toda a família muito simpáticos, são uns verdadeiros anfitriões. E muito importante recebem muito bem os nossos patudinhos. A aldeia é muito pacata, e com tudo o que necessitamos. A Casa da Tapada, é CASA 🖤🥰"</p>
+                            <span>Sílvia Alves</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Casa limpa e organizada, a zona era boa e o campo incrível."</p>
+                            <span>Rodrigo Cruz</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Carla, é só para dizer que correu tudo bem e que adoramos a estadia. Só o sossego e a tranquilidade deu para descansar da azáfama da cidade. Adoramos a casa que é muito acolhedora e bonita e adoramos o espaço exterior, principalmente a piscina. Obrigada pelo vosso carinho e simpatia. Adorei também as conversas que tive com a sua mãe. Iremos voltar, e já estamos com saudades. Bjinhos."</p>
+                            <span>Monica Emiliano</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Gostei muito da minha estadia neste alojamento. O espaço estava extremamente limpo, bem organizado e com todas as comodidades necessárias para uma estadia confortável. A decoração é acolhedora e faz-nos sentir em casa desde o primeiro momento. O anfitrião foi sempre muito simpático, disponível e atencioso, garantindo que tudo corresse da melhor forma. Recomendo vivamente este alojamento a quem procura conforto, tranquilidade e uma experiência positiva. Sem dúvida, voltaria a ficar aqui novamente!"</p>
+                            <span>Ricardo Moreiro</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Esta casinha tem tudo o que podíamos desejar para criar memórias em família 💗 muito acolhedora e cheia de detalhes que fazem toda a diferença! Tudo limpo e pensado ao pormenor, tanto dentro de casa como no espaço exterior! Fomos muito bem recebidas e queremos muito voltar! Obrigada por toda a simpatia e dedicação, que tornaram estes dias ainda mais especiais! Já temos saudades ✨"</p>
+                            <span>Alexandra Oliveira</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Casa incrível, onde cada detalhe parece ter sido pensado com sensibilidade e respeito pelo ambiente envolvente. Tivemos a oportunidade de participar numa das intervenções no exterior, e o resultado final ficou simplesmente perfeito, um verdadeiro reflexo de dedicação e bom gosto 💜"</p>
+                            <span>BeHome Comfy</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"O refúgio perfeito! Desconexão total e descanso absoluto. Muito obrigado pela hospitalidade. Um cantinho de paz. Um refúgio incrível para recarregar energias. O ambiente é mágico e o conforto nota 10 🥳 Adorámos a estadia e esperamos regressar 😊"</p>
+                            <span>Daniela Gouveia</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Perfeito. Fim de semana que soube a umas grandes férias. A casa é linda acolhedora com tudo o que precisamos. Teremos de voltar mais vezes. Obrigada por toda a simpatia."</p>
+                            <span>Adriana Almeida</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Uma estadia/experiência simplesmente fantástica. O espaço é muito acolhedor, tranquilo e rodeado por uma natureza incrível, perfeito para descansar e desligar da rotina. 🌿🍒🫧 A hospitalidade foi maravilhosa! Desde a chegada, fomos recebidos pelos anfitriões com uma simpatia genuína, muito prestáveis e com uma disponibilidade incrível. Nota-se muito carinho e dedicação com que cuidam de cada detalhe, de cada pormenor, de cada canto, fazem sem dúvida um lugar muito especial. Sentimo-nos verdadeiramente em casa! Muito obrigada por tudo! Recomendamos vivamente a Casa da Tapada a quem pretende sentir a natureza, a paz e o conforto."</p>
+                            <span>Alexandra Daniela</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Hospitalidade, elegância, praticidade, natureza, tranquilidade. Um espaço onde sentimos o carinho de quem nos recebe assim que abrimos a porta da casa 🏡❤️ Os detalhes de beleza e carinho estão em cada canto, em cada detalhe. Um destino para criar recordações inesquecíveis a dois ou em família e nem os pets ficam de fora! A voltar 🙏"</p>
+                            <span>Laura Ribeiro</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Lugar incrível para quem deseja descanso. Me senti acolhida, meus pets amaram, a família amou, voltarei breve. Indico de olhos fechados. Limpeza, ambiente e as cerejas 🍒🍒 que delícia 😋"</p>
+                            <span>Elizângela Rodrigues</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Foi simplesmente a melhor casa de férias em que já estive. Um espaço lindíssimo, organizado, perfeito para um fim de semana romântico ou umas férias com família e amigos. Experiência 5 estrelas para mim e para a minha namorada Camila."</p>
+                            <span>Tomas Araujo</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Casa extremamente acolhedora, cuidada ao detalhe e impecavelmente limpa, perfeita para quem procura uns dias de descanso e tranquilidade no campo. Desde o primeiro momento, sente-se um ambiente confortável e relaxante, ideal para desligar da rotina. O espaço exterior é simplesmente um sonho!"</p>
+                            <span>Tânia Pinto</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Local incrível, com uma piscina muito agradável com vista para a natureza. Proprietária muito simpática. Pessoas de confiança e que sabem receber bem."</p>
+                            <span>Catia Gaspar</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Ótimo alojamento, perfeito para uma escapadinha no campo. Os proprietários são 5 estrelas e sempre disponíveis. Uma estadia a repetir!"</p>
+                            <span>Catarina Pimentão</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Adorei a experiência nesta casa de turismo rural! O espaço é extremamente acolhedor, combinando o charme rústico com todo o conforto necessário para uma estadia relaxante. A envolvência natural é simplesmente incrível, perfeita para descansar e desligar da rotina. Os anfitriões foram de uma simpatia e disponibilidade excecionais, sempre atentos aos detalhes. Sem dúvida, um local a que quero voltar e que recomendo a quem procura tranquilidade e autenticidade."</p>
+                            <span>Cátia Pinto</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Passámos 3 dias na Casa da Tapada e adorámos. A casa tem tudo o que é necessário para uma óptima e serena estadia. Os anfitriões são super simpáticos e muito atenciosos. Voltaremos, com certeza 🧡"</p>
+                            <span>Susana Félix</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Uma harmonia perfeita entre conforto, elegância e a incrível aragem da beira baixa. Um espaço elegante e extremamente agradável para se estar com a família e amigos. Além disto tudo são também petfriendly, o nosso Pantufas adorou!"</p>
+                            <span>Daniel Monteiro</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Um lugar mágico; ao chegar, você se sente como se estivesse nos confins da Terra, em um ambiente tranquilo. Tudo é perfeito, até o menor detalhe. Saímos com um nó na garganta porque foi maravilhoso. Esperamos voltar muito em breve. Muito obrigada por tudo."</p>
+                            <span>Sabrina Capdeville</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Tanto pra dizer sobre esta semana de férias na Casa da Tapada...... Vou começar pelo princípio, a reserva, fácil, simples, rápida! Dia da chegada: Sem palavras! Ao vivo é ainda mais espetacular! O espaço exterior..... Deslumbrante, a piscina, a zona de refeições, a decoração, o baloiço, a cama de rede, as plantas, as árvores, o sossego, o ar..... Até o ar que se respira é bom! A casa: Uma decoração digna de qualquer hotel 5 estrelas em Paris, simplesmente fantástica, os quartos bem organizados, muito limpos, fresquinhos, acolhedores! O wc, lindo, muito limpo, muito funcional! A sala/cozinha: tudo organizado conforme manda a lei, equipada com tudo o que há de melhor para se passar uns dias em família! O miminho de boas-vindas: simplesmente delicioso, com produtos da terra, saborosos, saudáveis, bem..... Faltam as palavras! Tivemos a honra de apanhar nesta semana as festas em honra de Sto António na freguesia de Atalaia do Campo, feito por pessoas para pessoas! Gente humilde, simpática! Por fim, os anfitriões, a D. Carla, o Sr. Pinto e os pais da D. Carla, pessoas simples, amáveis, simpáticas, pessoas de toque, de abraço, sempre preocupados, sempre atentos a qualquer falha que pudesse acontecer! Foram 6 dias que souberam a muito pouco, mas foi com toda a certeza a primeira vez de muitas! Obrigado por tudo! Como disse a minha esposa, a palavra que descreve a casa na perfeição é "casa", porque nos sentimos na verdade em casa! Ps: Pena apenas podermos avaliar de 0 a 5, porque na verdade queríamos dar 100 estrelas!"</p>
+                            <span>Ruben Adegas</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Lugar incrível, acolhedor, feito ao detalhe e a proprietária super simpática! Vale muito a pena."</p>
+                            <span>Leonardo César</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Muito lindo, adoramos ❤️❤️❤️"</p>
+                            <span>Priscila Daniel</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="testi-arrow testi-next" id="testiNext" aria-label="Avaliação seguinte">&#10095;</button>
             </div>
+            <div class="testi-dots" id="testiDots"></div>
         </div>
     </section>
+
+    <script>
+        (function () {
+            const track = document.getElementById('testimonialTrack');
+            const cards = Array.from(track.children);
+            const dotsContainer = document.getElementById('testiDots');
+            let index = 0;
+
+            cards.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.className = 'testi-dot' + (i === 0 ? ' ativo' : '');
+                dot.addEventListener('click', () => irPara(i));
+                dotsContainer.appendChild(dot);
+            });
+            const dots = Array.from(dotsContainer.children);
+
+            function irPara(i) {
+                index = (i + cards.length) % cards.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach((d, di) => d.classList.toggle('ativo', di === index));
+            }
+
+            document.getElementById('testiPrev').addEventListener('click', () => irPara(index - 1));
+            document.getElementById('testiNext').addEventListener('click', () => irPara(index + 1));
+
+            let startX = 0;
+            track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchend', (e) => {
+                const diff = e.changedTouches[0].clientX - startX;
+                if (diff > 50) irPara(index - 1);
+                else if (diff < -50) irPara(index + 1);
+            });
+        })();
+    </script>
 
     <section class="section-weather section" data-color="#ffffff">
         <div class="weather-container">

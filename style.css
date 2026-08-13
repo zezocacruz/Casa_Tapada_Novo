@@ -39,7 +39,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 5% 25px 5%; /* Espaço extra no topo para o logo */
+    padding: 25px 5% 15px 5%; /* Espaço extra no topo para o logo */
     background: #fff;
     position: sticky;
     top: 0;
@@ -50,11 +50,11 @@ body {
 .logo-container {
     position: absolute;
     left: 5%;
-    top: 10px; /* Logo desce um pouco para fugir da barra castanha */
+    top: 8px; /* Logo desce um pouco para fugir da barra castanha */
 }
 
-.site-logo { 
-    height: 115px; /* Logo grande e visível */
+.site-logo {
+    height: 100px; /* Logo grande e visível */
     width: auto;
     border-radius: 50%;
     background: #fff;
@@ -72,8 +72,8 @@ body {
     text-transform: uppercase; 
     font-size: 0.9rem; 
     position: relative; 
-    z-index: 2; 
-    padding: 12px 25px; 
+    z-index: 2;
+    padding: 10px 22px;
     transition: 0.3s;
 }
 
@@ -95,6 +95,8 @@ body {
 
 .nav-links a:hover { color: #fff; transform: scale(1.1); }
 .nav-links a:hover::before { width: 100%; opacity: 1; }
+.nav-links a.active { color: #fff; }
+.nav-links a.active::before { width: 100%; opacity: 1; }
 
 /* 4. HERO VIDEO (Correção Full-Screen) */
 .hero { 
@@ -160,9 +162,29 @@ body {
 
 /* TESTEMUNHOS */
 .section-testimonials { padding: 120px 10%; text-align: center; }
-.testimonial-card { background: #fff; padding: 50px; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); max-width: 900px; margin: 40px auto; }
-.testimonial-card p { font-style: italic; font-size: 1.3rem; line-height: 1.8; margin-bottom: 25px; }
-.testimonial-card span { font-weight: 600; color: #b58d3d; font-size: 1rem; text-transform: uppercase; }
+.testi-fonte { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; color: #888; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.testimonial-carousel { display: flex; align-items: center; gap: 15px; max-width: 900px; margin: 40px auto 0; }
+.testimonial-viewport { overflow: hidden; width: 100%; }
+.testimonial-track { display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.testimonial-card { flex: 0 0 100%; width: 100%; box-sizing: border-box; background: #fff; padding: 40px 50px; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); max-height: 300px; overflow-y: auto; }
+.testi-stars { color: #d4a373; font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 12px; }
+.testimonial-card p { font-style: italic; font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px; text-align: left; }
+.testimonial-card span { font-weight: 600; color: #b58d3d; font-size: 0.9rem; text-transform: uppercase; display: block; text-align: left; }
+
+.testi-arrow { flex-shrink: 0; background: #fff; border: 1px solid #f0e6d2; color: #b58d3d; width: 45px; height: 45px; border-radius: 50%; font-size: 1rem; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.06); transition: 0.3s; }
+.testi-arrow:hover { background: #b58d3d; color: #fff; }
+
+.testi-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.testi-dot { width: 8px; height: 8px; border-radius: 50%; background: #ddd; cursor: pointer; transition: 0.3s; }
+.testi-dot.ativo { background: #b58d3d; width: 22px; border-radius: 5px; }
+
+@media (max-width: 768px) {
+    .testimonial-card { padding: 30px 25px; max-height: 340px; }
+    .testimonial-card p { font-size: 1rem; }
+    .testi-arrow { width: 36px; height: 36px; font-size: 0.85rem; }
+}
 
 /* TEMPO */
 .section-weather { padding: 100px 10%; text-align: center; }
@@ -245,8 +267,8 @@ body {
 
 /* MOBILE */
 @media (max-width: 768px) {
-    .main-nav { flex-direction: column; padding-top: 90px; }
-    .logo-container { top: -75px; left: 50%; transform: translateX(-50%); }
+    .main-nav { flex-direction: column; padding-top: 65px; }
+    .logo-container { top: -65px; left: 50%; transform: translateX(-50%); }
     .nav-links { gap: 8px; flex-wrap: wrap; justify-content: center; }
     .nav-links a { font-size: 0.75rem; padding: 12px 15px; }
     .full-grid { flex-direction: column; height: auto; }
