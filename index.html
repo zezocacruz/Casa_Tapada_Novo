@@ -1,189 +1,341 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#04342C">
-<title>tlm · metas do dia</title>
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa da Tapada | Experiência Rural</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-color="#ffffff">
 
-<div class="app">
-
-  <header class="topbar">
-    <div class="date-label" id="today-date"></div>
-    <div class="day-strip-scroll" id="day-strip-scroll">
-      <div class="day-strip" id="day-strip"></div>
-    </div>
-  </header>
-
-  <main class="screen" id="screen-inicio">
-    <div class="notif-banner hidden" id="notif-banner">
-      <span class="notif-text"></span>
-      <button type="button" class="notif-enable hidden" id="notif-enable-btn">Ativar avisos</button>
-    </div>
-
-    <section class="card principle-card" id="principle-of-day">
-      <div class="card-label principle-label">Princípios</div>
-      <div class="principle-text" id="principle-text" contenteditable="true" data-placeholder="Toca para escrever o teu primeiro princípio…"></div>
-      <div class="principle-controls">
-        <button type="button" class="principle-nav" id="principle-prev" aria-label="Princípio anterior">‹</button>
-        <span class="principle-count" id="principle-count"></span>
-        <button type="button" class="principle-nav" id="principle-next" aria-label="Princípio seguinte">›</button>
-        <span class="principle-controls-spacer"></span>
-        <button type="button" class="principle-icon-btn" id="principle-add" aria-label="Adicionar princípio">+</button>
-        <button type="button" class="principle-icon-btn danger hidden" id="principle-delete" aria-label="Remover princípio">×</button>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="card-header">
-        <span class="card-label">Rotinas de hoje</span>
-        <span class="counter" id="routines-counter">0/0</span>
-      </div>
-      <ul class="list" id="routines-list"></ul>
-      <form class="add-row" id="routine-form">
-        <input type="text" id="routine-input" placeholder="Nova rotina (ex: tomar comprimidos)" autocomplete="off">
-        <button type="submit">+</button>
-      </form>
-    </section>
-
-    <section class="card">
-      <div class="card-header">
-        <span class="card-label">Metas da semana</span>
-        <span class="counter" id="goals-week-counter">0/0</span>
-      </div>
-      <ul class="list" id="goals-week-preview"></ul>
-      <button class="link-btn" data-nav="metas">Ver todas as metas →</button>
-    </section>
-
-    <section class="card">
-      <div class="card-header">
-        <span class="card-label">Peso</span>
-        <span class="weight-delta" id="weight-delta"></span>
-      </div>
-      <div class="weight-current" id="weight-current">Ainda sem registos</div>
-      <ul class="list" id="weight-list"></ul>
-      <form class="add-row weight-form" id="weight-form">
-        <input type="number" id="weight-value-input" class="weight-value-input" placeholder="kg" step="0.1" min="0" inputmode="decimal" autocomplete="off">
-        <input type="text" id="weight-note-input" placeholder="Nota (opcional)" autocomplete="off">
-        <button type="submit">+</button>
-      </form>
-    </section>
-
-    <section class="card">
-      <div class="card-header">
-        <span class="card-label">Lembretes</span>
-      </div>
-      <ul class="list" id="reminders-list"></ul>
-      <form class="add-row" id="reminder-form">
-        <input type="text" id="reminder-input" placeholder="Novo lembrete" autocomplete="off">
-        <button type="submit">+</button>
-      </form>
-    </section>
-  </main>
-
-  <main class="screen hidden" id="screen-metas">
-    <div class="tabs" id="goal-tabs">
-      <div class="tab-indicator" id="tab-indicator"></div>
-      <button class="tab active" data-scope="semana">Semana</button>
-      <button class="tab" data-scope="dia">Hoje</button>
-    </div>
-    <section class="card">
-      <ul class="list" id="goals-list"></ul>
-      <form class="add-row" id="goal-form">
-        <input type="text" id="goal-input" placeholder="Nova meta" autocomplete="off">
-        <button type="submit">+</button>
-      </form>
-    </section>
-  </main>
-
-  <main class="screen hidden" id="screen-diario">
-    <div class="journal-tabs-scroll" id="journal-tabs-scroll">
-      <div class="journal-tabs" id="journal-tabs"></div>
-    </div>
-
-    <div class="journal-new-collapse" id="journal-new-collapse">
-      <div class="journal-new-form">
-        <input type="text" id="journal-new-name" placeholder="Nome do jornal (ex: Mercado)" autocomplete="off">
-        <div class="journal-new-type" id="journal-new-type">
-          <button type="button" class="slot-chip active" data-type="dates">Com datas</button>
-          <button type="button" class="slot-chip" data-type="notebook">Só caderno</button>
+    <nav class="main-nav">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="imagens/logo.jpeg" alt="Logo Casa da Tapada" class="site-logo">
+            </a>
         </div>
-        <button type="button" class="primary-btn" id="journal-new-confirm">Criar jornal</button>
-      </div>
-    </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Início</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="regiao.html">Região</a></li>
+            <li><a href="planta.html">Planta</a></li>
+            <li><a href="reservar.html">Reservar</a></li>
+        </ul>
+        <span class="insta-tag">
+            <svg class="insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#b58d3d" stroke-width="2"/><circle cx="12" cy="12" r="4.6" stroke="#b58d3d" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.15" fill="#b58d3d"/></svg>
+            @casadatapadaturismo
+        </span>
+    </nav>
 
-    <section class="card">
-      <div class="card-label" id="journal-input-label">Nova entrada</div>
-      <textarea id="journal-input" class="journal-textarea" placeholder="Como correu o dia?" rows="7"></textarea>
-      <button class="primary-btn" id="journal-save">Guardar</button>
-    </section>
-    <section id="journal-entries"></section>
-  </main>
-
-  <main class="screen hidden" id="screen-agenda">
-    <section class="card">
-      <div class="agenda-header">
-        <button type="button" class="agenda-nav-btn" id="agenda-prev" aria-label="Mês anterior">‹</button>
-        <span class="agenda-month-label" id="agenda-month-label"></span>
-        <button type="button" class="agenda-nav-btn" id="agenda-next" aria-label="Mês seguinte">›</button>
-      </div>
-      <div class="agenda-weekdays">
-        <span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span><span>D</span>
-      </div>
-      <div class="agenda-grid" id="agenda-grid"></div>
-    </section>
-
-    <section class="card agenda-day-card">
-      <div class="card-label" id="agenda-selected-label"></div>
-      <div class="agenda-untimed-wrap hidden" id="agenda-untimed-wrap">
-        <div class="agenda-untimed-label">Sem hora</div>
-        <ul class="list" id="agenda-untimed-list"></ul>
-      </div>
-      <div class="agenda-timeline-scroll" id="agenda-timeline-scroll">
-        <div class="agenda-timeline" id="agenda-timeline"></div>
-      </div>
-      <form id="event-form">
-        <div class="add-row">
-          <input type="text" id="event-title-input" placeholder="Título (ex: consulta)" autocomplete="off">
-          <input type="time" id="event-time-input" class="event-time-input">
-          <button type="submit">+</button>
+    <header class="hero section" data-color="#1a1a1a">
+        <video autoplay muted loop playsinline poster="imagens/hero.jpeg" id="hero-video">
+            <source src="imagens/video-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Casa da Tapada</h1>
+            <p>Onde o tempo para e a natureza respira na Atalaia do Campo.</p>
+            <a href="#intro" class="btn-scroll">Viver a Experiência</a>
         </div>
-        <textarea id="event-notes-input" placeholder="Notas (opcional)" rows="2"></textarea>
-      </form>
+    </header>
+
+    <section id="intro" class="section-split section" data-color="#fdfbf7">
+        <div class="split-text">
+            <h2>Um refúgio com alma</h2>
+            <p>Na Casa da Tapada, a beleza está na simplicidade. Acorde com o som do campo, sinta a brisa da manhã e termine o dia sob um céu estrelado único na nossa região. Um espaço pensado para quem procura desconectar e reencontrar a paz.</p>
+        </div>
+        <div class="split-image">
+            <img src="imagens/foto1.jpeg" alt="Refúgio Rural" loading="lazy">
+        </div>
     </section>
-  </main>
 
-  <nav class="bottom-nav" id="bottom-nav">
-    <div class="nav-indicator" id="nav-indicator"></div>
-    <button class="nav-btn active" data-nav="inicio">
-      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9"/></svg></span>
-      <span>Início</span>
-    </button>
-    <button class="nav-btn" data-nav="metas">
-      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M8.3 12.4l2.3 2.3 4.8-5"/></svg></span>
-      <span>Metas</span>
-    </button>
-    <button class="nav-btn" data-nav="diario">
-      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h9.5a1 1 0 0 1 1 1V19l-3-1.8-3 1.8-3-1.8-3 1.8V5.5a1 1 0 0 1 1-1z"/><path d="M8 9h6M8 12h6"/></svg></span>
-      <span>Jornal</span>
-    </button>
-    <button class="nav-btn" data-nav="agenda">
-      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14" rx="2"/><path d="M4 10h16M8 3.5v3M16 3.5v3"/></svg></span>
-      <span>Agenda</span>
-    </button>
-  </nav>
+    <section class="section-activities section" data-color="#ffffff">
+        <div class="container-atividades">
+            <h2 style="font-family:'Playfair Display'; color:#b58d3d; font-size: 2.8rem; margin-bottom: 50px; text-align: center;">Viver a Atalaia do Campo</h2>
+            <div class="grid-atividades">
+                <a href="regiao.html#trilhos" class="atividade">
+                    <img src="imagens/foto2.jpeg" alt="Trilhos" loading="lazy">
+                    <div class="atividade-info">
+                        <h3>Trilhos Naturais</h3>
+                        <p>Caminhadas inesquecíveis entre vales e montanhas.</p>
+                    </div>
+                </a>
+                <a href="regiao.html#gastronomia" class="atividade">
+                    <img src="imagens/foto3.jpeg" alt="Gastronomia" loading="lazy">
+                    <div class="atividade-info">
+                        <h3>Gastronomia Beirã</h3>
+                        <p>Sabores autênticos que contam a história da nossa terra.</p>
+                    </div>
+                </a>
+                <a href="regiao.html#vilas" class="atividade">
+                    <img src="imagens/foto4.jpeg" alt="Vilas" loading="lazy">
+                    <div class="atividade-info">
+                        <h3>Vilas Históricas</h3>
+                        <p>Explore o património único da Beira Baixa.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <section class="section-testimonials section" data-color="#f4f1ea">
+        <div class="testimonial-container">
+            <h2>O que dizem os nossos hóspedes</h2>
+            <p class="testi-fonte">
+                <svg width="16" height="16" viewBox="0 0 24 24" style="vertical-align:-3px;"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.4H12v4.5h6.5c-.3 1.5-1.1 2.7-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.9-3c-1.1.7-2.4 1.2-4 1.2-3.1 0-5.7-2.1-6.6-4.9H1.4v3.1C3.4 21.3 7.4 24 12 24z"/><path fill="#FBBC05" d="M5.4 14.4c-.2-.7-.4-1.4-.4-2.4s.1-1.6.4-2.4V6.5H1.4C.5 8.2 0 10.1 0 12s.5 3.8 1.4 5.5l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.2 15.2 0 12 0 7.4 0 3.4 2.7 1.4 6.5l4 3.1C6.3 6.9 8.9 4.8 12 4.8z"/></svg>
+                Avaliações reais do Google
+            </p>
+            <div class="testimonial-carousel">
+                <button class="testi-arrow testi-prev" id="testiPrev" aria-label="Avaliação anterior">&#10094;</button>
+                <div class="testimonial-viewport">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Só tenho a agradecer os dias maravilhosos que passámos no vosso cantinho do paraíso. Aconselho muito a quem queira mesmo desligar, da correria do dia a dia. Aqui o tempo passa devagar, conseguimos apreciar verdadeiramente a Natureza, e toda a sua envolvência. Acordar de manhã com o som dos passarinhos, é mágico. À noite contemplar o céu estrelado, é lindo. E poder ter o privilégio, de colher pêssegos diretamente da árvore e comer, que delícia. E o que dizer da casa, tão linda, tão mimosa, com tantos pormenores, que se vê nitidamente que existe ali muito amor, muita dedicação. Á nossa chegada, mal abrimos a porta, que cheirinho a limpeza, dou muita importância a esse pormenor. E a Carla e toda a família muito simpáticos, são uns verdadeiros anfitriões. E muito importante recebem muito bem os nossos patudinhos. A aldeia é muito pacata, e com tudo o que necessitamos. A Casa da Tapada, é CASA 🖤🥰"</p>
+                            <span>Sílvia Alves</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Casa limpa e organizada, a zona era boa e o campo incrível."</p>
+                            <span>Rodrigo Cruz</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Carla, é só para dizer que correu tudo bem e que adoramos a estadia. Só o sossego e a tranquilidade deu para descansar da azáfama da cidade. Adoramos a casa que é muito acolhedora e bonita e adoramos o espaço exterior, principalmente a piscina. Obrigada pelo vosso carinho e simpatia. Adorei também as conversas que tive com a sua mãe. Iremos voltar, e já estamos com saudades. Bjinhos."</p>
+                            <span>Monica Emiliano</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Gostei muito da minha estadia neste alojamento. O espaço estava extremamente limpo, bem organizado e com todas as comodidades necessárias para uma estadia confortável. A decoração é acolhedora e faz-nos sentir em casa desde o primeiro momento. O anfitrião foi sempre muito simpático, disponível e atencioso, garantindo que tudo corresse da melhor forma. Recomendo vivamente este alojamento a quem procura conforto, tranquilidade e uma experiência positiva. Sem dúvida, voltaria a ficar aqui novamente!"</p>
+                            <span>Ricardo Moreiro</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Esta casinha tem tudo o que podíamos desejar para criar memórias em família 💗 muito acolhedora e cheia de detalhes que fazem toda a diferença! Tudo limpo e pensado ao pormenor, tanto dentro de casa como no espaço exterior! Fomos muito bem recebidas e queremos muito voltar! Obrigada por toda a simpatia e dedicação, que tornaram estes dias ainda mais especiais! Já temos saudades ✨"</p>
+                            <span>Alexandra Oliveira</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Casa incrível, onde cada detalhe parece ter sido pensado com sensibilidade e respeito pelo ambiente envolvente. Tivemos a oportunidade de participar numa das intervenções no exterior, e o resultado final ficou simplesmente perfeito, um verdadeiro reflexo de dedicação e bom gosto 💜"</p>
+                            <span>BeHome Comfy</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"O refúgio perfeito! Desconexão total e descanso absoluto. Muito obrigado pela hospitalidade. Um cantinho de paz. Um refúgio incrível para recarregar energias. O ambiente é mágico e o conforto nota 10 🥳 Adorámos a estadia e esperamos regressar 😊"</p>
+                            <span>Daniela Gouveia</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Perfeito. Fim de semana que soube a umas grandes férias. A casa é linda acolhedora com tudo o que precisamos. Teremos de voltar mais vezes. Obrigada por toda a simpatia."</p>
+                            <span>Adriana Almeida</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Uma estadia/experiência simplesmente fantástica. O espaço é muito acolhedor, tranquilo e rodeado por uma natureza incrível, perfeito para descansar e desligar da rotina. 🌿🍒🫧 A hospitalidade foi maravilhosa! Desde a chegada, fomos recebidos pelos anfitriões com uma simpatia genuína, muito prestáveis e com uma disponibilidade incrível. Nota-se muito carinho e dedicação com que cuidam de cada detalhe, de cada pormenor, de cada canto, fazem sem dúvida um lugar muito especial. Sentimo-nos verdadeiramente em casa! Muito obrigada por tudo! Recomendamos vivamente a Casa da Tapada a quem pretende sentir a natureza, a paz e o conforto."</p>
+                            <span>Alexandra Daniela</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Hospitalidade, elegância, praticidade, natureza, tranquilidade. Um espaço onde sentimos o carinho de quem nos recebe assim que abrimos a porta da casa 🏡❤️ Os detalhes de beleza e carinho estão em cada canto, em cada detalhe. Um destino para criar recordações inesquecíveis a dois ou em família e nem os pets ficam de fora! A voltar 🙏"</p>
+                            <span>Laura Ribeiro</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Lugar incrível para quem deseja descanso. Me senti acolhida, meus pets amaram, a família amou, voltarei breve. Indico de olhos fechados. Limpeza, ambiente e as cerejas 🍒🍒 que delícia 😋"</p>
+                            <span>Elizângela Rodrigues</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Foi simplesmente a melhor casa de férias em que já estive. Um espaço lindíssimo, organizado, perfeito para um fim de semana romântico ou umas férias com família e amigos. Experiência 5 estrelas para mim e para a minha namorada Camila."</p>
+                            <span>Tomas Araujo</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Casa extremamente acolhedora, cuidada ao detalhe e impecavelmente limpa, perfeita para quem procura uns dias de descanso e tranquilidade no campo. Desde o primeiro momento, sente-se um ambiente confortável e relaxante, ideal para desligar da rotina. O espaço exterior é simplesmente um sonho!"</p>
+                            <span>Tânia Pinto</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Local incrível, com uma piscina muito agradável com vista para a natureza. Proprietária muito simpática. Pessoas de confiança e que sabem receber bem."</p>
+                            <span>Catia Gaspar</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Ótimo alojamento, perfeito para uma escapadinha no campo. Os proprietários são 5 estrelas e sempre disponíveis. Uma estadia a repetir!"</p>
+                            <span>Catarina Pimentão</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Adorei a experiência nesta casa de turismo rural! O espaço é extremamente acolhedor, combinando o charme rústico com todo o conforto necessário para uma estadia relaxante. A envolvência natural é simplesmente incrível, perfeita para descansar e desligar da rotina. Os anfitriões foram de uma simpatia e disponibilidade excecionais, sempre atentos aos detalhes. Sem dúvida, um local a que quero voltar e que recomendo a quem procura tranquilidade e autenticidade."</p>
+                            <span>Cátia Pinto</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Passámos 3 dias na Casa da Tapada e adorámos. A casa tem tudo o que é necessário para uma óptima e serena estadia. Os anfitriões são super simpáticos e muito atenciosos. Voltaremos, com certeza 🧡"</p>
+                            <span>Susana Félix</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Uma harmonia perfeita entre conforto, elegância e a incrível aragem da beira baixa. Um espaço elegante e extremamente agradável para se estar com a família e amigos. Além disto tudo são também petfriendly, o nosso Pantufas adorou!"</p>
+                            <span>Daniel Monteiro</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Um lugar mágico; ao chegar, você se sente como se estivesse nos confins da Terra, em um ambiente tranquilo. Tudo é perfeito, até o menor detalhe. Saímos com um nó na garganta porque foi maravilhoso. Esperamos voltar muito em breve. Muito obrigada por tudo."</p>
+                            <span>Sabrina Capdeville</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Tanto pra dizer sobre esta semana de férias na Casa da Tapada...... Vou começar pelo princípio, a reserva, fácil, simples, rápida! Dia da chegada: Sem palavras! Ao vivo é ainda mais espetacular! O espaço exterior..... Deslumbrante, a piscina, a zona de refeições, a decoração, o baloiço, a cama de rede, as plantas, as árvores, o sossego, o ar..... Até o ar que se respira é bom! A casa: Uma decoração digna de qualquer hotel 5 estrelas em Paris, simplesmente fantástica, os quartos bem organizados, muito limpos, fresquinhos, acolhedores! O wc, lindo, muito limpo, muito funcional! A sala/cozinha: tudo organizado conforme manda a lei, equipada com tudo o que há de melhor para se passar uns dias em família! O miminho de boas-vindas: simplesmente delicioso, com produtos da terra, saborosos, saudáveis, bem..... Faltam as palavras! Tivemos a honra de apanhar nesta semana as festas em honra de Sto António na freguesia de Atalaia do Campo, feito por pessoas para pessoas! Gente humilde, simpática! Por fim, os anfitriões, a D. Carla, o Sr. Pinto e os pais da D. Carla, pessoas simples, amáveis, simpáticas, pessoas de toque, de abraço, sempre preocupados, sempre atentos a qualquer falha que pudesse acontecer! Foram 6 dias que souberam a muito pouco, mas foi com toda a certeza a primeira vez de muitas! Obrigado por tudo! Como disse a minha esposa, a palavra que descreve a casa na perfeição é "casa", porque nos sentimos na verdade em casa! Ps: Pena apenas podermos avaliar de 0 a 5, porque na verdade queríamos dar 100 estrelas!"</p>
+                            <span>Ruben Adegas</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Lugar incrível, acolhedor, feito ao detalhe e a proprietária super simpática! Vale muito a pena."</p>
+                            <span>Leonardo César</span>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testi-stars">★★★★★</div>
+                            <p>"Muito lindo, adoramos ❤️❤️❤️"</p>
+                            <span>Priscila Daniel</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="testi-arrow testi-next" id="testiNext" aria-label="Avaliação seguinte">&#10095;</button>
+            </div>
+            <div class="testi-dots" id="testiDots"></div>
+        </div>
+    </section>
 
-<script src="app.js"></script>
+    <script>
+        (function () {
+            const track = document.getElementById('testimonialTrack');
+            const cards = Array.from(track.children);
+            const dotsContainer = document.getElementById('testiDots');
+            let index = 0;
+
+            cards.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.className = 'testi-dot' + (i === 0 ? ' ativo' : '');
+                dot.addEventListener('click', () => irPara(i));
+                dotsContainer.appendChild(dot);
+            });
+            const dots = Array.from(dotsContainer.children);
+
+            function irPara(i) {
+                index = (i + cards.length) % cards.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach((d, di) => d.classList.toggle('ativo', di === index));
+            }
+
+            document.getElementById('testiPrev').addEventListener('click', () => irPara(index - 1));
+            document.getElementById('testiNext').addEventListener('click', () => irPara(index + 1));
+
+            /* Arrastar com o rato ou com o dedo */
+            const viewport = track.parentElement;
+            let arrastando = false;
+            let decidido = false;
+            let horizontal = false;
+            let startX = 0;
+            let startY = 0;
+            let largura = 0;
+
+            function posX(e) { return e.clientX; }
+            function posY(e) { return e.clientY; }
+
+            track.addEventListener('pointerdown', (e) => {
+                if (e.pointerType === 'mouse' && e.button !== 0) return;
+                arrastando = true;
+                decidido = false;
+                horizontal = false;
+                startX = posX(e);
+                startY = posY(e);
+                largura = viewport.offsetWidth;
+                track.style.transition = 'none';
+                track.setPointerCapture(e.pointerId);
+            });
+
+            track.addEventListener('pointermove', (e) => {
+                if (!arrastando) return;
+                const deltaX = posX(e) - startX;
+                const deltaY = posY(e) - startY;
+
+                if (!decidido) {
+                    if (Math.abs(deltaX) > 8 || Math.abs(deltaY) > 8) {
+                        decidido = true;
+                        horizontal = Math.abs(deltaX) > Math.abs(deltaY);
+                        if (!horizontal) { arrastando = false; return; }
+                    } else {
+                        return;
+                    }
+                }
+
+                if (horizontal) {
+                    e.preventDefault();
+                    const base = -index * largura;
+                    track.style.transform = `translateX(${base + deltaX}px)`;
+                }
+            });
+
+            function soltar(e) {
+                if (!arrastando) return;
+                arrastando = false;
+                track.style.transition = '';
+                const deltaX = posX(e) - startX;
+                if (decidido && horizontal) {
+                    if (deltaX > 60) irPara(index - 1);
+                    else if (deltaX < -60) irPara(index + 1);
+                    else irPara(index);
+                } else {
+                    irPara(index);
+                }
+            }
+
+            track.addEventListener('pointerup', soltar);
+            track.addEventListener('pointercancel', soltar);
+            track.addEventListener('pointerleave', (e) => { if (arrastando) soltar(e); });
+        })();
+    </script>
+
+    <section class="section-weather section" data-color="#ffffff">
+        <div class="weather-container">
+            <h3 style="font-family:'Playfair Display'; color:#b58d3d; font-size: 2.2rem; text-align: center;">Prepare a sua visita</h3>
+            <div class="widget-box">
+                <a class="weatherwidget-io" href="https://forecast7.com/en/40d05n7d43/atalaia-do-campo/" data-label_1="ATALAIA DO CAMPO" data-label_2="WEATHER" data-theme="original" data-basecolor="#d4a373" >ATALAIA DO CAMPO WEATHER</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-full-grid section" data-color="#e8e2d6">
+        <div class="full-grid">
+            <a href="galeria.html" class="card-full card1"><div class="overlay"><h3>Natureza Pura</h3></div></a>
+            <a href="historia.html" class="card-full card2"><div class="overlay"><h3>Tradição Viva</h3></div></a>
+            <a href="sobre.html" class="card-full card3"><div class="overlay"><h3>Comunidade</h3></div></a>
+        </div>
+    </section>
+
+    <footer class="footer-dark section" data-color="#1a1a1a">
+        <h2>Pronto para viver esta experiência?</h2>
+        <a href="reservar.html" class="btn-footer">Consultar Disponibilidade</a>
+        <p style="margin-top: 50px; opacity: 0.5; font-size: 0.8rem;">© 2026 Casa da Tapada - Atalaia do Campo, Fundão</p>
+    </footer>
+
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.body.style.backgroundColor = entry.target.getAttribute('data-color');
+                }
+            });
+        }, { threshold: 0.5 });
+        sections.forEach(s => observer.observe(s));
+    </script>
 </body>
 </html>

@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
     <nav class="main-nav">
         <div class="logo-container">
             <a href="index.html"><img src="imagens/logo.jpeg" alt="Logo" class="site-logo"></a>
@@ -19,14 +18,19 @@
             <li><a href="historia.html">História</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="regiao.html">Região</a></li>
             <li><a href="planta.html">Planta</a></li>
             <li><a href="reservar.html" class="active">Reservar</a></li>
         </ul>
+        <span class="insta-tag">
+            <svg class="insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#b58d3d" stroke-width="2"/><circle cx="12" cy="12" r="4.6" stroke="#b58d3d" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.15" fill="#b58d3d"/></svg>
+            @casadatapadaturismo
+        </span>
     </nav>
 
     <section class="conteudo-interno" style="min-height:auto; padding-bottom: 60px;">
         <h1>Reservar a Casa da Tapada</h1>
-        <p>Escolha as suas datas, preencha os seus dados e envie-nos o pedido de reserva diretamente via WhatsApp. Respondemos o mais rápido possível para confirmar a disponibilidade.</p>
+        <p>Envie-nos uma mensagem por WhatsApp, Instagram ou Facebook com os seus dados e a sua estadia. Respondemos o mais rápido possível para confirmar a disponibilidade.</p>
     </section>
 
     <section class="section-inclui section" data-color="#e8e2d6">
@@ -37,29 +41,21 @@
     </section>
 
     <section class="section-booking section" data-color="#ffffff">
-        <h2 class="booking-title">Escolha as suas Datas</h2>
-        <form class="booking-form" id="bookingForm">
-            <div class="form-row">
-                <label>Nome
-                    <input type="text" id="nome" required placeholder="O seu nome">
-                </label>
-                <label>Nº de Hóspedes
-                    <input type="number" id="hospedes" min="1" max="6" value="2" required>
-                </label>
+        <h2 class="booking-title">Como Reservar</h2>
+        <div class="reserva-info">
+            <p>Contacte-nos por um dos canais abaixo e indique estes dados para agilizarmos a sua reserva:</p>
+            <ul class="reserva-dados">
+                <li>Nome completo</li>
+                <li>Número de hóspedes</li>
+                <li>Datas de check-in e check-out</li>
+                <li>Algum pedido especial (opcional)</li>
+            </ul>
+            <div class="contactos-lista">
+                <div class="contacto-item"><strong>WhatsApp</strong><a href="https://wa.me/351927539498" target="_blank">927 539 498</a></div>
+                <div class="contacto-item"><strong>Instagram</strong><a href="https://www.instagram.com/casadatapadaturismo/" target="_blank">@casadatapadaturismo</a></div>
+                <div class="contacto-item"><strong>Facebook</strong><span class="contacto-placeholder">Facebook</span></div>
             </div>
-            <div class="form-row">
-                <label>Check-in
-                    <input type="date" id="checkin" required>
-                </label>
-                <label>Check-out
-                    <input type="date" id="checkout" required>
-                </label>
-            </div>
-            <label>Mensagem (opcional)
-                <textarea id="mensagem" rows="3" placeholder="Alguma questão ou pedido especial?"></textarea>
-            </label>
-            <button type="submit" class="btn-footer">Pedir Reserva via WhatsApp</button>
-        </form>
+        </div>
     </section>
 
     <section class="conteudo-interno" style="min-height:auto;">
@@ -137,55 +133,6 @@
             <div class="contacto-item"><strong>Email</strong><a href="mailto:carlalex1973@gmail.com">carlalex1973@gmail.com</a></div>
         </div>
     </section>
-
-    <a href="https://wa.me/351927539498" class="whatsapp-btn" target="_blank" aria-label="Contactar via WhatsApp">
-        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="16" cy="16" r="16" fill="#25D366"/><path fill="#fff" d="M23.6 8.4c-2-2-4.7-3.1-7.6-3.1-5.9 0-10.7 4.8-10.7 10.7 0 1.9.5 3.7 1.4 5.3L5 27l5.9-1.5c1.5.8 3.2 1.3 5 1.3 5.9 0 10.7-4.8 10.7-10.7 0-2.9-1.1-5.6-3-7.6zm-7.6 16.4c-1.6 0-3.1-.4-4.5-1.2l-.3-.2-3.4.9.9-3.3-.2-.3c-.9-1.4-1.3-3-1.3-4.7 0-4.9 4-8.9 8.9-8.9 2.4 0 4.6.9 6.3 2.6 1.7 1.7 2.6 3.9 2.6 6.3-.1 4.9-4.1 8.8-9 8.8zm4.9-6.6c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.5-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3 0-.1-.2-.2-.4-.3z"/></svg>
-    </a>
-
-    <script>
-        const checkinInput = document.getElementById('checkin');
-        const checkoutInput = document.getElementById('checkout');
-
-        const today = new Date().toISOString().split('T')[0];
-        checkinInput.min = today;
-
-        checkinInput.addEventListener('change', () => {
-            const checkinDate = new Date(checkinInput.value);
-            checkinDate.setDate(checkinDate.getDate() + 1);
-            checkoutInput.min = checkinDate.toISOString().split('T')[0];
-
-            if (checkoutInput.value && checkoutInput.value <= checkinInput.value) {
-                checkoutInput.value = '';
-            }
-        });
-
-        document.getElementById('bookingForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const nome = document.getElementById('nome').value;
-            const hospedes = document.getElementById('hospedes').value;
-            const checkin = checkinInput.value;
-            const checkout = checkoutInput.value;
-            const mensagem = document.getElementById('mensagem').value;
-
-            const formatarData = (data) => {
-                const [ano, mes, dia] = data.split('-');
-                return `${dia}/${mes}/${ano}`;
-            };
-
-            let texto = `Olá! Gostaria de fazer uma reserva na Casa da Tapada.\n\n`;
-            texto += `Nome: ${nome}\n`;
-            texto += `Check-in: ${formatarData(checkin)}\n`;
-            texto += `Check-out: ${formatarData(checkout)}\n`;
-            texto += `Nº de Hóspedes: ${hospedes}`;
-            if (mensagem) {
-                texto += `\nMensagem: ${mensagem}`;
-            }
-
-            const url = `https://wa.me/351927539498?text=${encodeURIComponent(texto)}`;
-            window.open(url, '_blank');
-        });
-    </script>
 
 </body>
 </html>
