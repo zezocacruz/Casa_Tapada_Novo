@@ -31,16 +31,59 @@
     <section class="conteudo-interno">
         <h1>Galeria</h1>
         <p>Conheça os recantos e encantos da nossa casa.</p>
-        
+
+        <h2 class="galeria-titulo">Exterior e Piscina</h2>
         <div class="grid-galeria">
-            <img src="imagens/foto1.jpeg" alt="Foto 1" loading="lazy">
-            <img src="imagens/foto2.jpeg" alt="Foto 2" loading="lazy">
-            <img src="imagens/foto3.jpeg" alt="Foto 3" loading="lazy">
-            <img src="imagens/foto4.jpeg" alt="Foto 4" loading="lazy">
-            <img src="imagens/destaque1.jpeg" alt="Natureza" loading="lazy">
-            <img src="imagens/destaque2.jpeg" alt="Interior" loading="lazy">
+            <img src="imagens/fotos/f71.jpg" alt="Piscina e oliveiras" loading="lazy">
+            <img src="imagens/fotos/f70.jpg" alt="Zona exterior" loading="lazy">
+            <img src="imagens/fotos/f72.jpg" alt="Piscina" loading="lazy">
+            <img src="imagens/fotos/f73.jpg" alt="Espreguiçadeiras junto à piscina" loading="lazy">
+            <img src="imagens/fotos/f44.jpg" alt="Entrada da casa" loading="lazy">
+            <img src="imagens/fotos/f25.jpg" alt="Fachada da Casa da Tapada" loading="lazy">
+        </div>
+        <h2 class="galeria-titulo">Ao Ar Livre</h2>
+        <div class="grid-galeria">
+            <img src="imagens/fotos/f22.jpg" alt="Zona de lume" loading="lazy">
+            <img src="imagens/fotos/f20.jpg" alt="Serão junto ao lume" loading="lazy">
+            <img src="imagens/fotos/f51.jpg" alt="Mesa exterior" loading="lazy">
+            <img src="imagens/fotos/f50.jpg" alt="Pequeno-almoço no exterior" loading="lazy">
+            <img src="imagens/fotos/f54.jpg" alt="Refeição à sombra" loading="lazy">
+            <img src="imagens/fotos/f62.jpg" alt="Rede no olival" loading="lazy">
+            <img src="imagens/fotos/f65.jpg" alt="Baloiço" loading="lazy">
+            <img src="imagens/fotos/f28.jpg" alt="Passeio no olival" loading="lazy">
+        </div>
+        <h2 class="galeria-titulo">Interior</h2>
+        <div class="grid-galeria">
+            <img src="imagens/fotos/f8.jpg" alt="Sala com lareira" loading="lazy">
+            <img src="imagens/fotos/f1.jpg" alt="Sala" loading="lazy">
+            <img src="imagens/fotos/f7.jpg" alt="Sala de estar" loading="lazy">
+            <img src="imagens/fotos/f3.jpg" alt="Sala de jantar" loading="lazy">
+            <img src="imagens/fotos/f5.jpg" alt="Cozinha" loading="lazy">
+            <img src="imagens/fotos/f6.jpg" alt="Cozinha" loading="lazy">
+        </div>
+        <h2 class="galeria-titulo">Quartos</h2>
+        <div class="grid-galeria">
+            <img src="imagens/fotos/f38.jpg" alt="Quarto" loading="lazy">
+            <img src="imagens/fotos/f75.jpg" alt="Quarto" loading="lazy">
+            <img src="imagens/fotos/f76.jpg" alt="Quarto" loading="lazy">
+            <img src="imagens/fotos/f59.jpg" alt="Quarto" loading="lazy">
+            <img src="imagens/fotos/f77.jpg" alt="Quarto" loading="lazy">
+        </div>
+        <h2 class="galeria-titulo">Detalhes</h2>
+        <div class="grid-galeria">
+            <img src="imagens/fotos/f2.jpg" alt="Cesto de boas-vindas" loading="lazy">
+            <img src="imagens/fotos/f16.jpg" alt="Janela" loading="lazy">
+            <img src="imagens/fotos/f13.jpg" alt="Casa de banho" loading="lazy">
+            <img src="imagens/fotos/f15.jpg" alt="Casa de banho" loading="lazy">
+            <img src="imagens/fotos/f19.jpg" alt="Produtos da região" loading="lazy">
+            <img src="imagens/fotos/f24.jpg" alt="Queijo e enchidos" loading="lazy">
         </div>
     </section>
+
+    <div class="rodape-legal">
+        <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener" class="btn-reclamacoes">Livro de Reclamações</a>
+        <p>Reclamações também por email: <a href="mailto:casadatapadaturismo@gmail.com">casadatapadaturismo@gmail.com</a></p>
+    </div>
 
     <div class="lightbox" id="lightbox">
         <span class="lightbox-close" id="lightboxClose">&times;</span>
@@ -49,54 +92,7 @@
         <span class="lightbox-arrow lightbox-next" id="lightboxNext">&#10095;</span>
     </div>
 
-    <script>
-        const galeriaImgs = document.querySelectorAll('.grid-galeria img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightboxImg');
-        let indiceAtual = 0;
-
-        function abrirLightbox(indice) {
-            indiceAtual = indice;
-            lightboxImg.src = galeriaImgs[indiceAtual].src;
-            lightboxImg.alt = galeriaImgs[indiceAtual].alt;
-            lightbox.classList.add('ativo');
-        }
-
-        function fecharLightbox() {
-            lightbox.classList.remove('ativo');
-        }
-
-        function imagemSeguinte() {
-            indiceAtual = (indiceAtual + 1) % galeriaImgs.length;
-            lightboxImg.src = galeriaImgs[indiceAtual].src;
-            lightboxImg.alt = galeriaImgs[indiceAtual].alt;
-        }
-
-        function imagemAnterior() {
-            indiceAtual = (indiceAtual - 1 + galeriaImgs.length) % galeriaImgs.length;
-            lightboxImg.src = galeriaImgs[indiceAtual].src;
-            lightboxImg.alt = galeriaImgs[indiceAtual].alt;
-        }
-
-        galeriaImgs.forEach((img, indice) => {
-            img.addEventListener('click', () => abrirLightbox(indice));
-        });
-
-        document.getElementById('lightboxClose').addEventListener('click', fecharLightbox);
-        document.getElementById('lightboxNext').addEventListener('click', imagemSeguinte);
-        document.getElementById('lightboxPrev').addEventListener('click', imagemAnterior);
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) fecharLightbox();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('ativo')) return;
-            if (e.key === 'Escape') fecharLightbox();
-            if (e.key === 'ArrowRight') imagemSeguinte();
-            if (e.key === 'ArrowLeft') imagemAnterior();
-        });
-    </script>
+    <script src="lightbox.js"></script>
 
 </body>
 </html>
