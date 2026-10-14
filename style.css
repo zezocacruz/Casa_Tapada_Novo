@@ -204,9 +204,9 @@ body {
 .full-grid { display: flex; width: 100%; height: 80vh; }
 .card-full { flex: 1; position: relative; background-size: cover; background-position: center; transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; display: block; text-decoration: none; color: inherit; }
 .card-full:hover { flex: 2; }
-.card1 { background-image: url('imagens/fotos/f62.jpg'); }
-.card2 { background-image: url('imagens/fotos/f19.jpg'); }
-.card3 { background-image: url('imagens/fotos/f54.jpg'); }
+.card1 { background-image: url('fotos_git/f62.jpg'); }
+.card2 { background-image: url('fotos_git/f19.jpg'); }
+.card3 { background-image: url('fotos_git/f54.jpg'); }
 .overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; color: #fff; }
 .overlay h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
