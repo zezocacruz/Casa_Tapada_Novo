@@ -349,6 +349,43 @@ body {
     .galeria-titulo { font-size: 1.6rem; margin-top: 35px; }
 }
 
+/* AJUSTES TELEMÓVEL (evitam que algo ultrapasse a largura do ecrã) */
+.grid-galeria { grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); }
+.grid-atividades { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.grid-sobre { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.regiao-img { min-width: min(100%, 320px); }
+.regiao-texto { min-width: min(100%, 300px); }
+.widget-box iframe, .widget-box > * { max-width: 100%; }
+img { max-width: 100%; }
+
+@media (max-width: 768px) {
+    /* Menu compacto: deixa de ocupar metade do ecrã */
+    .main-nav { position: relative; padding: 12px 4% 12px; }
+    .logo-container { position: static; transform: none; margin-bottom: 8px; }
+    .site-logo { height: 70px; }
+    .nav-links { gap: 2px; }
+    .nav-links a { font-size: 0.7rem; padding: 8px 10px; }
+    .nav-links a::before { height: 32px; }
+    .nav-links a:hover { transform: none; }
+    .insta-tag { margin-top: 6px; }
+
+    /* Ecrã inicial com altura correcta no telemóvel */
+    .hero { height: 100vh; height: 100svh; min-height: 480px; }
+    .btn-scroll { padding: 13px 32px; }
+
+    /* Texto à esquerda é mais legível em ecrãs estreitos */
+    .split-text p, .conteudo-interno p { text-align: left; }
+
+    .card-full:hover { flex: 1; }
+    .testimonial-carousel { gap: 6px; }
+    .testimonial-card { padding: 24px 18px; }
+    .regiao-img { height: 220px; min-width: 100%; }
+    .inclui-box { padding: 25px 20px; }
+    .inclui-img { height: 200px; }
+    .contacto-item a { font-size: 1.05rem; word-break: break-word; }
+    .btn-footer { padding: 16px 32px; font-size: 1rem; }
+}
+
 /* RODAPÉ LEGAL (Livro de Reclamações) */
 .rodape-legal { background: #1a1a1a; color: #bbb; text-align: center; padding: 25px 6%; font-size: 0.85rem; }
 .rodape-legal p { margin-top: 12px; }
