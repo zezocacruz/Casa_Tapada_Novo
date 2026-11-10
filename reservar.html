@@ -1,144 +1,245 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservar | Casa da Tapada</title>
+    <meta name="description" content="Reserve diretamente a Casa da Tapada por WhatsApp ou email. Preços, condições de reserva e regras da casa.">
+    <meta name="theme-color" content="#6f7d5c">
+    <meta property="og:title" content="Reservar | Casa da Tapada">
+    <meta property="og:description" content="Reserve diretamente a Casa da Tapada por WhatsApp ou email. Preços, condições de reserva e regras da casa.">
+    <meta property="og:image" content="https://zezocacruz.github.io/Casa_Tapada_Novo/fotos/f71.jpg">
+    <meta property="og:locale" content="pt_PT">
+    <link rel="alternate" hreflang="pt" href="https://zezocacruz.github.io/Casa_Tapada_Novo/reservar.html">
+    <link rel="alternate" hreflang="en" href="https://zezocacruz.github.io/Casa_Tapada_Novo/en/reservar.html">
+    <link rel="alternate" hreflang="es" href="https://zezocacruz.github.io/Casa_Tapada_Novo/es/reservar.html">
+    <link rel="alternate" hreflang="fr" href="https://zezocacruz.github.io/Casa_Tapada_Novo/fr/reservar.html">
+    <link rel="alternate" hreflang="x-default" href="https://zezocacruz.github.io/Casa_Tapada_Novo/reservar.html">
+    <link rel="icon" href="fotos/logo.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="main-nav">
-        <div class="logo-container">
-            <a href="index.html"><img src="fotos_git/logo.jpeg" alt="Logo" class="site-logo"></a>
+    <!-- ===== CABEÇALHO ===== -->
+    <header class="topo" id="topo">
+        <a href="index.html" class="topo-logo" aria-label="Casa da Tapada">
+            <img src="fotos/logo.jpeg" alt="Casa da Tapada">
+        </a>
+        <nav class="menu" id="menu" aria-label="Menu principal">
+            <a href="index.html">Início</a>
+            <a href="casa.html">A Casa</a>
+            <a href="regiao.html">Região</a>
+            <a href="historia.html">História</a>
+            <a href="reservar.html" class="menu-reservar ativo">Reservar</a>
+            <div class="linguas" aria-label="Escolher língua">
+                <a href="reservar.html" lang="pt" hreflang="pt" class="ativo" aria-current="true">PT</a>
+                <a href="en/reservar.html" lang="en" hreflang="en">EN</a>
+                <a href="es/reservar.html" lang="es" hreflang="es">ES</a>
+                <a href="fr/reservar.html" lang="fr" hreflang="fr">FR</a>
+            </div>
+        </nav>
+        <button class="menu-botao" id="menuBotao" aria-label="Abrir menu" data-abrir="Abrir menu" data-fechar="Fechar menu" aria-expanded="false" aria-controls="menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <main>
+
+        <section class="reservar-topo">
+            <p class="sobretitulo">Reservar</p>
+            <h1>Reserve diretamente connosco</h1>
+            <p>Diga-nos as datas e quantas pessoas vêm. Confirmamos a disponibilidade e o valor o mais rápido possível.</p>
+            <div class="reservar-botoes">
+                <a href="https://wa.me/351927539498?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20a%20Casa%20da%20Tapada.%0ANome%3A%20%0AData%20de%20check-in%3A%20%0AData%20de%20check-out%3A%20%0AN%C2%BA%20de%20h%C3%B3spedes%3A%20%0AAnimais%20%28sim%2Fn%C3%A3o%29%3A%20%0APedido%20especial%3A%20" class="btn btn-principal" target="_blank" rel="noopener">Pedir reserva por WhatsApp</a>
+                <a href="mailto:carlalex1973@gmail.com?subject=Pedido%20de%20reserva%20-%20Casa%20da%20Tapada" class="btn btn-contorno-escuro">Enviar email</a>
+                <a href="tel:+351927539498" class="btn btn-contorno-escuro">Ligar</a>
+            </div>
+            <p class="nota">A mensagem do WhatsApp já abre com os campos para preencher.</p>
+        </section>
+
+        <section class="seccao seccao-areia">
+            <div class="cabecalho-seccao">
+                <h2>Como funciona</h2>
+            </div>
+            <ol class="passos">
+                <li><span>1</span><h3>Envie o pedido</h3><p>Nome, datas, número de hóspedes e se traz animais.</p></li>
+                <li><span>2</span><h3>Confirmamos</h3><p>Respondemos com a disponibilidade e o valor da estadia.</p></li>
+                <li><span>3</span><h3>Reserva garantida</h3><p>A reserva fica confirmada com o pagamento de 50% do valor total.</p></li>
+            </ol>
+        </section>
+
+        <section class="seccao">
+            <div class="cabecalho-seccao">
+                <h2>Em resumo</h2>
+            </div>
+            <div class="resumo">
+                <div><strong>Check-in</strong><span>a partir das 15h00</span></div>
+                <div><strong>Check-out</strong><span>até às 11h00</span></div>
+                <div><strong>Capacidade</strong><span>até 6 pessoas</span></div>
+                <div><strong>Animais</strong><span>com acordo prévio</span></div>
+                <div><strong>Caução</strong><span>150 €</span></div>
+                <div><strong>Pagamento</strong><span>MB WAY ou transferência</span></div>
+            </div>
+            <div class="precos-inclui">
+                <div class="precos">
+                    <h3>Preços por noite</h3>
+                    <table>
+                    <tr><td>2026</td><td>150 €</td></tr>
+                    <tr><td>2027</td><td>200 €</td></tr>
+                    <tr><td>Julho e agosto de 2027</td><td>225 €</td></tr>
+                    </table>
+                    <p class="nota">Preço para a casa inteira, até 6 pessoas. Não é cobrada taxa turística.</p>
+                </div>
+                <div class="inclui">
+                    <img src="fotos/f2.jpg" alt="Cesto de boas-vindas com produtos da região" loading="lazy">
+                    <h3>A estadia inclui</h3>
+                    <ul>
+                        <li>Cesto de boas-vindas com produtos da região</li>
+                        <li>Roupa de cama e toalhas de banho</li>
+                        <li>Wi-Fi</li>
+                        <li>Estacionamento junto à casa</li>
+                        <li>Utilização exclusiva da piscina e do espaço exterior</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccao seccao-areia">
+            <div class="cabecalho-seccao">
+                <h2>Condições de reserva</h2>
+            </div>
+            <div class="faq">
+                <details open>
+                    <summary>Pagamento e confirmação</summary>
+                    <ul>
+                        <li>A reserva é confirmada mediante o pagamento de 50% do valor total da estadia.</li>
+                        <li>Os restantes 50% e a caução são pagos até 7 dias antes do check-in.</li>
+                        <li>A falta de pagamento dentro do prazo implica o cancelamento automático da reserva.</li>
+                        <li>Aceitamos pagamento por MB WAY e transferência bancária.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Cancelamento</summary>
+                    <ul>
+                        <li>Cancelamentos até 14 dias antes da entrada: é retido 50% do valor da reserva.</li>
+                        <li>Cancelamentos com menos de 14 dias de antecedência: o valor não é reembolsável.</li>
+                        <li>Em caso de não comparência (no-show), é devido o valor total da estadia.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Caução</summary>
+                    <ul>
+                        <li>Caução de 150 €, paga juntamente com o valor restante da reserva.</li>
+                        <li>É devolvida após a verificação do estado do alojamento, até 3 dias após o check-out.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Horários</summary>
+                    <ul>
+                        <li>Check-in a partir das 15h00 e check-out até às 11h00.</li>
+                        <li>Pedidos de horários diferentes podem ser considerados, conforme a disponibilidade.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Regras da casa</summary>
+                    <ul>
+                        <li>Capacidade máxima de 6 hóspedes.</li>
+                        <li>Não é permitido fumar dentro de casa. É permitido fumar nas zonas exteriores.</li>
+                        <li>Animais de estimação permitidos mediante acordo prévio.</li>
+                        <li>Festas e eventos apenas com autorização prévia dos proprietários.</li>
+                        <li>Pedimos que respeite os equipamentos, o mobiliário e os espaços exteriores.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Crianças e piscina</summary>
+                    <ul>
+                        <li>Crianças e bebés são bem-vindos. Temos cadeira de refeição para bebé, mas não temos berço.</li>
+                        <li>A piscina não é aquecida e não tem vedação de segurança: as crianças devem estar sempre acompanhadas por um adulto.</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>Check-in e documentos</summary>
+                    <ul>
+                        <li>No check-in é pedido um documento de identificação de cada hóspede, para cumprimento das obrigações legais de registo de hóspedes.</li>
+                    </ul>
+                </details>
+            </div>
+            <p class="nota centrado">Ao reservar, aceita estas condições e os <a href="legal.html#termos">Termos e Condições</a>.</p>
+        </section>
+
+        <section class="seccao">
+            <div class="cabecalho-seccao">
+                <h2>Também estamos nas plataformas</h2>
+                <p class="cabecalho-texto">Se preferir, pode reservar através do Airbnb. Ao reservar diretamente connosco, fala sem intermediários com quem cuida da casa.</p>
+            </div>
+            <div class="reservar-botoes">
+                <a href="https://www.airbnb.pt/rooms/1791404531724363427" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Reservar no Airbnb</a>
+                <span class="plataforma">Booking.com · em breve</span>
+            </div>
+        </section>
+
+        <section class="seccao seccao-areia">
+            <div class="cabecalho-seccao">
+                <h2>Contactos</h2>
+            </div>
+            <div class="contactos">
+                <a href="https://wa.me/351927539498?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20a%20disponibilidade%20da%20Casa%20da%20Tapada." target="_blank" rel="noopener"><strong>WhatsApp / Telefone</strong><span>+351 927 539 498</span></a>
+                <a href="mailto:carlalex1973@gmail.com"><strong>Email</strong><span>carlalex1973@gmail.com</span></a>
+                <a href="https://www.instagram.com/casadatapadaturismo/" target="_blank" rel="noopener"><strong>Instagram</strong><span>@casadatapadaturismo</span></a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Tapada%2C%206230-130%20Atalaia%20do%20Campo%2C%20Fund%C3%A3o%2C%20Portugal" target="_blank" rel="noopener"><strong>Morada</strong><span>Tapada, 6230-130 Atalaia do Campo, Fundão</span></a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="rodape">
+        <div class="rodape-grelha">
+            <div>
+                <img src="fotos/logo.jpeg" alt="Casa da Tapada" class="rodape-logo">
+                <p>Casa de campo na Atalaia do Campo, Fundão. Tempo, silêncio e a sensação de estar em casa.</p>
+                <p class="rodape-morada">Tapada, 6230-130 Atalaia do Campo<br>Fundão, Portugal</p>
+            </div>
+            <div>
+                <h3>Navegar</h3>
+                <a href="casa.html">A Casa</a>
+                <a href="regiao.html">Região</a>
+                <a href="historia.html">História</a>
+                <a href="reservar.html">Reservar</a>
+            </div>
+            <div>
+                <h3>Contactos</h3>
+                <a href="tel:+351927539498">+351 927 539 498</a>
+                <a href="mailto:carlalex1973@gmail.com">carlalex1973@gmail.com</a>
+                <a href="https://www.instagram.com/casadatapadaturismo/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.airbnb.pt/rooms/1791404531724363427" target="_blank" rel="noopener">Airbnb</a>
+                <a href="https://www.facebook.com/share/1MHd3AVH89/" target="_blank" rel="noopener">Facebook</a>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="historia.html">História</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a href="regiao.html">Região</a></li>
-            <li><a href="planta.html">Planta</a></li>
-            <li><a href="reservar.html" class="active">Reservar</a></li>
-        </ul>
-        <span class="insta-tag">
-            <svg class="insta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#b58d3d" stroke-width="2"/><circle cx="12" cy="12" r="4.6" stroke="#b58d3d" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.15" fill="#b58d3d"/></svg>
-            @casadatapadaturismo
-        </span>
+        <div class="rodape-legal">
+            <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener" class="btn-reclamacoes">Livro de Reclamações</a>
+            <p>Alojamento Local n.º 180494/AL · Reclamações também por email: <a href="mailto:casadatapadaturismo@gmail.com">casadatapadaturismo@gmail.com</a></p>
+            <p><a href="legal.html#termos">Termos</a> · <a href="legal.html#privacidade">Privacidade</a> · <a href="legal.html#cookies">Cookies</a> · <a href="legal.html#litigios">Resolução de Litígios</a> · <a href="legal.html#identificacao">Identificação</a></p>
+            <p>© <span id="ano">2026</span> Casa da Tapada</p>
+        </div>
+    </footer>
+
+    <!-- ===== BARRA FIXA (só telemóvel) ===== -->
+    <nav class="barra-movel" aria-label="Contacto rápido">
+        <a href="tel:+351927539498">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+            Ligar
+        </a>
+        <a href="https://wa.me/351927539498?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20a%20disponibilidade%20da%20Casa%20da%20Tapada." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12-.64.8-.78.97-.29.18-.54.06a6.7 6.7 0 0 1-3.3-2.9c-.25-.43.25-.4.71-1.33a.45.45 0 0 0-.02-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.43h-.48a.92.92 0 0 0-.67.31 2.8 2.8 0 0 0-.87 2.08 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.69 2.23.75 3.03.63a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .15-1.2c-.06-.11-.23-.17-.48-.29z"/></svg>
+            WhatsApp
+        </a>
+        <a href="reservar.html" class="barra-reservar">Reservar</a>
     </nav>
 
-    <section class="conteudo-interno" style="min-height:auto; padding-bottom: 60px;">
-        <h1>Reservar a Casa da Tapada</h1>
-        <p>Envie-nos uma mensagem por WhatsApp, Instagram ou Facebook com os seus dados e a sua estadia. Respondemos o mais rápido possível para confirmar a disponibilidade.</p>
-    </section>
-
-    <section class="section-inclui section" data-color="#e8e2d6">
-        <div class="inclui-box">
-            <img src="fotos_git/f2.jpg" alt="Cesto de boas-vindas" class="inclui-img" loading="lazy">
-            <h2>🧺 A Estadia Inclui</h2>
-            <p>Cesto de boas-vindas com produtos genuínos da região.</p>
-        </div>
-    </section>
-
-    <section class="section-booking section" data-color="#ffffff">
-        <h2 class="booking-title">Como Reservar</h2>
-        <div class="reserva-info">
-            <p>Contacte-nos por um dos canais abaixo e indique estes dados para agilizarmos a sua reserva:</p>
-            <ul class="reserva-dados">
-                <li>Nome completo</li>
-                <li>Número de hóspedes</li>
-                <li>Datas de check-in e check-out</li>
-                <li>Algum pedido especial (opcional)</li>
-            </ul>
-            <div class="contactos-lista">
-                <div class="contacto-item"><strong>WhatsApp</strong><a href="https://wa.me/351927539498" target="_blank">927 539 498</a></div>
-                <div class="contacto-item"><strong>Instagram</strong><a href="https://www.instagram.com/casadatapadaturismo/" target="_blank">@casadatapadaturismo</a></div>
-                <div class="contacto-item"><strong>Facebook</strong><span class="contacto-placeholder">Facebook</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="conteudo-interno" style="min-height:auto;">
-        <h1>📌 Condições de Reserva</h1>
-        <p style="text-align:center; margin-bottom: 10px;">Casa da Tapada</p>
-
-        <div class="condicoes-lista">
-            <div class="condicao-item">
-                <h3>Confirmação da Reserva</h3>
-                <ul>
-                    <li>A reserva é confirmada mediante pagamento de 50% do valor total da estadia.</li>
-                    <li>O valor remanescente, bem como a caução, deverão ser liquidados até 7 dias antes da data de check-in.</li>
-                    <li>A ausência de pagamento dentro do prazo implica o cancelamento automático da reserva.</li>
-                </ul>
-            </div>
-
-            <div class="condicao-item">
-                <h3>Política de Cancelamento</h3>
-                <ul>
-                    <li>Cancelamentos efetuados até 14 dias antes da data de check-in permitem a devolução de 50% do valor pago.</li>
-                    <li>Cancelamentos com menos de 14 dias de antecedência não são reembolsáveis.</li>
-                    <li>Em caso de não comparência (no-show), o valor total da estadia será devido.</li>
-                </ul>
-            </div>
-
-            <div class="condicao-item">
-                <h3>Check-in e Check-out</h3>
-                <ul>
-                    <li>Check-in: a partir das 15h</li>
-                    <li>Check-out: até às 11h</li>
-                    <li>Pedidos de horários diferentes poderão ser considerados mediante disponibilidade.</li>
-                </ul>
-            </div>
-
-            <div class="condicao-item">
-                <h3>Capacidade</h3>
-                <ul>
-                    <li>A casa está preparada para acolher até 6 pessoas.</li>
-                    <li>Não é permitida a permanência de pessoas adicionais sem comunicação prévia.</li>
-                </ul>
-            </div>
-
-            <div class="condicao-item">
-                <h3>Animais de Estimação</h3>
-                <ul>
-                    <li>Os animais de estimação são bem-vindos mediante comunicação prévia.</li>
-                    <li>Devem ser mantidos sob supervisão e evitar danos no mobiliário ou têxteis.</li>
-                </ul>
-            </div>
-
-            <div class="condicao-item">
-                <h3>Caução</h3>
-                <ul>
-                    <li>É solicitada uma caução no valor de 150€, a liquidar juntamente com o valor remanescente da reserva.</li>
-                    <li>A caução será devolvida até 3 dias após o check-out, após verificação do estado do alojamento.</li>
-                </ul>
-            </div>
-
-            <div class="condicao-item">
-                <h3>Responsabilidade</h3>
-                <ul>
-                    <li>O hóspede compromete-se a utilizar o espaço com cuidado, sendo responsável por eventuais danos causados durante a estadia.</li>
-                </ul>
-            </div>
-        </div>
-
-        <p style="margin-top: 30px;">Qualquer dúvida estamos disponíveis 🌿</p>
-    </section>
-
-    <section class="conteudo-interno" style="min-height:auto;">
-        <h1>Contactos</h1>
-        <div class="contactos-lista">
-            <div class="contacto-item"><strong>Telefone</strong><a href="tel:+351927539498">+351 927 539 498</a></div>
-            <div class="contacto-item"><strong>WhatsApp</strong><a href="https://wa.me/351927539498" target="_blank">Enviar Mensagem</a></div>
-            <div class="contacto-item"><strong>Email</strong><a href="mailto:carlalex1973@gmail.com">carlalex1973@gmail.com</a></div>
-        </div>
-    </section>
-
-    <div class="rodape-legal">
-        <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener" class="btn-reclamacoes">Livro de Reclamações</a>
-        <p>Reclamações também por email: <a href="mailto:casadatapadaturismo@gmail.com">casadatapadaturismo@gmail.com</a></p>
-    </div>
-
+    <script src="main.js"></script>
 </body>
 </html>
