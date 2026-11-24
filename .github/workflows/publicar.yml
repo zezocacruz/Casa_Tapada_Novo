@@ -1,6 +1,10 @@
 # Publica o site no GitHub Pages sempre que há um "git push" para o main.
 # Primeiro corre o gerador (gerador_site/gerar.py) e depois publica a pasta codigo_git_NOVO.
 # Também se pode correr à mão no separador "Actions" do GitHub.
+#
+# Gerar e publicar estão em dois trabalhos separados de propósito: no mesmo trabalho,
+# o passo de publicar às vezes não encontra a pasta acabada de enviar
+# (problema conhecido: github.com/actions/deploy-pages/issues/451).
 name: Publicar site
 
 on:
@@ -18,11 +22,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publicar:
+  gerar:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.publicacao.outputs.page_url }}
     steps:
       - name: Buscar o projeto
         uses: actions/checkout@v7
@@ -39,11 +40,17 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Enviar a pasta do site
-        # v4 e não v5: a v5 envia o pacote num formato que o deploy-pages ainda não encontra
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: codigo_git_NOVO
 
+  publicar:
+    needs: gerar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
       - name: Publicar
         id: publicacao
         uses: actions/deploy-pages@v5
