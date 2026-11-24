@@ -172,7 +172,7 @@
         const fmtSemana = new Intl.DateTimeFormat(lingua, { weekday: 'short' });
         const fmtData = new Intl.DateTimeFormat(lingua, { day: '2-digit', month: '2-digit', year: 'numeric' });
         const fmtLongo = new Intl.DateTimeFormat(lingua, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-        const semana = [0, 1, 2, 3, 4, 5, 6].map(function (i) { return fmtSemana.format(new Date(2024, 0, 1 + i)).replace('.', ''); });
+        const semana = [0, 1, 2, 3, 4, 5, 6].map(function (i) { return fmtSemana.format(new Date(2024, 0, 1 + i)).replace('.', '').slice(0, 3); });  // seg, ter... (em pt o "short" dá "segunda")
 
         const mesAtual = new Date(hoje.getFullYear(), hoje.getMonth(), 1);
         const mesMax = new Date(hoje.getFullYear(), hoje.getMonth() + 18, 1);

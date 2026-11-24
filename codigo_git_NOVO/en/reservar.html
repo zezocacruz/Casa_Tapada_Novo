@@ -62,6 +62,21 @@
             <p>Choose your dates and send us your request. We will reply as soon as possible with availability and the price.</p>
         </section>
 
+        <!-- ===== DUAS FORMAS DE RESERVAR ===== -->
+        <section class="reservar-opcoes" aria-label="Ways to book">
+            <div class="opcao opcao-direta">
+                <p class="opcao-selo">The better deal</p>
+                <h2>Directly with us</h2>
+                <p>No middlemen and no platform commissions. Choose your dates on the calendar and send your request by WhatsApp or email.</p>
+                <a href="#disponibilidade" class="btn btn-principal">Choose dates</a>
+            </div>
+            <div class="opcao">
+                <h2>On Airbnb</h2>
+                <p>You can also book on Airbnb. Booking and payment are made on the platform, under Airbnb's terms.</p>
+                <a href="https://www.airbnb.pt/rooms/1791404531724363427" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Book on Airbnb ↗</a>
+            </div>
+        </section>
+
         <!-- ===== CALENDÁRIO + PEDIDO ===== -->
         <section class="seccao reserva-calendario" id="disponibilidade">
             <div class="cal-caixa" id="calendario">
@@ -82,8 +97,8 @@
 
             <form class="pedido-caixa" id="pedido" onsubmit="return false">
                 <div class="pedido-datas">
-                    <label>Check-in<input type="text" id="pedIn" readonly placeholder="Choose on the calendar"></label>
-                    <label>Check-out<input type="text" id="pedOut" readonly placeholder="Choose on the calendar"></label>
+                    <label>Check-in<input type="text" id="pedIn" readonly placeholder="Select date"></label>
+                    <label>Check-out<input type="text" id="pedOut" readonly placeholder="Select date"></label>
                 </div>
                 <p class="pedido-noites" id="pedNoites"></p>
                 <div class="pedido-datas">
@@ -141,7 +156,7 @@
                 <div><strong>Payment</strong><span>MB WAY or bank transfer</span></div>
             </div>
             <div class="inclui">
-                <img src="../fotos/f2.jpg" alt="Welcome basket with local products" loading="lazy">
+                <img src="../fotos/f2.webp" srcset="../fotos/f2-800.webp 800w, ../fotos/f2.webp 1200w" sizes="(max-width: 768px) 90vw, 260px" alt="Welcome basket with local products" loading="lazy">
                 <div>
                     <h3>Your stay includes</h3>
                     <ul>
@@ -215,17 +230,17 @@
                     </ul>
                 </details>
             </div>
-            <p class="nota centrado">By booking, you accept these conditions and the <a href="legal.html#termos">Terms and Conditions</a>.</p>
+            <p class="nota centrado">By booking directly with us, you accept these conditions and the <a href="legal.html#termos">Terms and Conditions</a>. For bookings made on Airbnb, payment and cancellation follow the platform's rules.</p>
         </section>
 
         <section class="seccao">
             <div class="cabecalho-seccao">
-                <h2>You can also find us on booking platforms</h2>
-                <p class="cabecalho-texto">If you prefer, you can book through Airbnb. When you book directly with us, you speak with the people who look after the house, with no middlemen.</p>
+                <h2>Prefer to book on Airbnb?</h2>
+                <p class="cabecalho-texto">Casa da Tapada is also on Airbnb, where booking and payment follow the platform's terms. Booking directly with us is the better deal: no middlemen and no commissions.</p>
             </div>
             <div class="reservar-botoes">
-                <a href="https://www.airbnb.pt/rooms/1791404531724363427" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Book on Airbnb</a>
-                <span class="plataforma">Booking.com · coming soon</span>
+                <a href="https://www.airbnb.pt/rooms/1791404531724363427" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Book on Airbnb ↗</a>
+                
             </div>
         </section>
 

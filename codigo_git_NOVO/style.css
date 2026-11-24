@@ -9,6 +9,7 @@
     --salvia: #6f7d5c;
     --salvia-escuro: #58644a;
     --dourado: #c2a26b;
+    --dourado-texto: #7f6232;   /* dourado mais escuro para texto pequeno: lê-se bem (contraste 4,8:1 ou mais) */
     --texto: #3d3a35;
     --texto-suave: #6b665e;
     --verde-escuro: #3f4a3c;
@@ -121,7 +122,7 @@ h3 { font-size: 1.45rem; }
 /* ---------- Secções genéricas ---------- */
 .seccao { padding: 100px 6%; }
 .seccao-areia { background: var(--areia); }
-.sobretitulo { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; color: var(--dourado); font-weight: 600; margin-bottom: 12px; }
+.sobretitulo { text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; color: var(--dourado-texto); font-weight: 600; margin-bottom: 12px; }
 .cabecalho-seccao { text-align: center; max-width: 700px; margin: 0 auto 50px; }
 .cabecalho-texto { color: var(--texto-suave); margin-top: 14px; }
 
@@ -173,6 +174,8 @@ h3 { font-size: 1.45rem; }
 .plataformas { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
 .plataforma { background: #fff; border: 1px solid var(--linha); border-radius: 50px; padding: 6px 16px; font-size: 0.85rem; color: var(--texto-suave); }
 .plataforma b { color: var(--dourado); letter-spacing: 1px; }
+a.plataforma { text-decoration: none; transition: border-color 0.3s, color 0.3s; }
+a.plataforma:hover { border-color: var(--salvia); color: var(--salvia); }
 
 .carrossel { display: flex; align-items: center; gap: 14px; max-width: 1200px; margin: 0 auto; }
 .carrossel .deslizar { flex: 1; grid-auto-columns: calc((100% - 40px) / 3); }
@@ -195,6 +198,10 @@ h3 { font-size: 1.45rem; }
 .reserva-direta-caixa h2 { margin-bottom: 14px; }
 .reserva-direta-caixa > p { color: var(--texto-suave); margin-bottom: 26px; }
 .reserva-direta-caixa .hero-botoes { justify-content: center; }
+.rd-airbnb { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--linha); }
+.rd-airbnb p { font-size: 0.9rem; color: var(--texto-suave); margin-bottom: 12px; }
+.btn-airbnb { background: #fff; border-color: var(--linha); color: var(--texto); padding: 10px 24px; font-size: 0.9rem; }
+.btn-airbnb:hover { border-color: var(--salvia); color: var(--salvia); }
 .nota { font-size: 0.85rem; color: var(--texto-suave); margin-top: 20px; }
 
 /* ---------- 8. Região ---------- */
@@ -307,7 +314,7 @@ h3 { font-size: 1.45rem; }
 .historia > h2:first-child + p::first-letter { font-family: var(--letra-titulo); font-size: 4rem; float: left; line-height: 0.8; padding: 6px 10px 0 0; color: var(--dourado); }
 .historia-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--raio); margin: 30px 0; }
 .historia-assinatura { font-family: var(--letra-titulo); font-size: 1.5rem !important; font-style: italic; text-align: center; margin-top: 40px; }
-.historia-assinatura span { font-size: 1.1rem; color: var(--dourado); font-style: normal; }
+.historia-assinatura span { font-size: 1.1rem; color: var(--dourado-texto); font-style: normal; }
 .valores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto; text-align: center; }
 .valores h3 { color: var(--salvia); margin-bottom: 10px; }
 .valores p { color: var(--texto-suave); }
@@ -317,6 +324,14 @@ h3 { font-size: 1.45rem; }
 .reservar-topo h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 16px; }
 .reservar-topo > p { color: var(--texto-suave); }
 .reservar-botoes { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 30px; }
+/* Duas formas de reservar: diretamente (realçada) ou pelo Airbnb */
+.reservar-opcoes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: min(900px, 88%); margin: 0 auto 56px; }
+.opcao { position: relative; display: flex; flex-direction: column; align-items: flex-start; background: #fff; border: 1px solid var(--linha); border-radius: var(--raio); padding: 30px 28px; }
+.opcao-direta { border: 2px solid var(--salvia); }
+.opcao-selo { position: absolute; top: -13px; left: 24px; background: var(--salvia); color: #fff; font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 12px; border-radius: 50px; }
+.opcao h2 { font-size: 1.7rem; margin-bottom: 8px; }
+.opcao p:not(.opcao-selo) { color: var(--texto-suave); font-size: 0.95rem; margin-bottom: 22px; }
+.opcao .btn { margin-top: auto; }
 .passos { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
 .passos li { background: #fff; border-radius: var(--raio); padding: 34px 26px; text-align: center; }
 .passos li > span { display: inline-flex; width: 44px; height: 44px; border-radius: 50%; align-items: center; justify-content: center; background: var(--areia); color: var(--salvia); font-weight: 600; margin-bottom: 14px; }
@@ -324,7 +339,7 @@ h3 { font-size: 1.45rem; }
 .passos p { color: var(--texto-suave); font-size: 0.95rem; }
 .resumo { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; max-width: 1100px; margin: 0 auto 50px; }
 .resumo div { border: 1px solid var(--linha); border-radius: 16px; padding: 20px 12px; text-align: center; background: #fff; }
-.resumo strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dourado); margin-bottom: 6px; }
+.resumo strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dourado-texto); margin-bottom: 6px; }
 .inclui { display: grid; grid-template-columns: 260px 1fr; gap: 30px; align-items: center; max-width: 800px; margin: 0 auto; background: var(--areia); border-radius: var(--raio); padding: 24px; }
 .inclui img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
 .inclui h3 { margin-bottom: 8px; color: var(--salvia); }
@@ -334,7 +349,7 @@ h3 { font-size: 1.45rem; }
 .contactos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 860px; margin: 0 auto; }
 .contactos > * { display: block; background: #fff; border: 1px solid var(--linha); border-radius: 16px; padding: 22px; text-decoration: none; transition: border-color 0.3s; }
 .contactos a:hover { border-color: var(--salvia); }
-.contactos strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dourado); margin-bottom: 6px; }
+.contactos strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dourado-texto); margin-bottom: 6px; }
 .contactos span { overflow-wrap: normal; word-break: normal; }
 
 /* Seletor de língua */
@@ -365,7 +380,7 @@ h3 { font-size: 1.45rem; }
 /* Região: locais a visitar */
 .locais { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1150px; margin: 0 auto; }
 .local { background: #fff; border: 1px solid var(--linha); border-radius: var(--raio); padding: 30px 26px; display: flex; flex-direction: column; }
-.local-tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dourado); font-weight: 600; margin-bottom: 8px; }
+.local-tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dourado-texto); font-weight: 600; margin-bottom: 8px; }
 .local h3 { color: var(--salvia); margin-bottom: 10px; }
 .local p:not(.local-tag) { color: var(--texto-suave); font-size: 0.95rem; flex: 1; }
 .local .link-seta { margin-top: 16px; font-size: 0.9rem; align-self: flex-start; }
@@ -383,7 +398,7 @@ h3 { font-size: 1.45rem; }
 /* Região: eventos */
 .eventos { max-width: 850px; margin: 0 auto; display: grid; gap: 16px; }
 .evento { display: grid; grid-template-columns: 200px 1fr; gap: 24px; background: #fff; border-radius: var(--raio); padding: 26px 28px; align-items: start; }
-.evento-data { font-family: var(--letra-titulo); font-size: 1.3rem; font-weight: 600; color: var(--dourado); line-height: 1.3; }
+.evento-data { font-family: var(--letra-titulo); font-size: 1.3rem; font-weight: 600; color: var(--dourado-texto); line-height: 1.3; }
 .evento h3 { margin-bottom: 6px; }
 .evento p { color: var(--texto-suave); }
 
@@ -421,9 +436,9 @@ h3 { font-size: 1.45rem; }
 .cal-seta { width: 38px; height: 38px; border-radius: 12px; border: 1px solid var(--linha); background: #fff; color: var(--salvia); font-size: 1.4rem; line-height: 1; cursor: pointer; transition: 0.2s; }
 .cal-seta:hover:not(:disabled) { background: var(--salvia); color: #fff; border-color: var(--salvia); }
 .cal-seta:disabled { opacity: 0.35; cursor: default; }
-.cal-meses { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+.cal-meses { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 24px; }  /* no PC os 2 meses lado a lado */
 .cal-titulo { text-align: center; font-weight: 600; margin: 6px 0 12px; }
-.cal-dias { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 4px; }
+.cal-dias { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); row-gap: 4px; }
 .cal-semana { text-align: center; font-size: 0.75rem; color: var(--texto-suave); padding-bottom: 6px; text-transform: lowercase; }
 .cal-dia { aspect-ratio: 1; border: 0; background: none; font: inherit; font-size: 0.92rem; color: var(--texto); cursor: pointer; border-radius: 10px; position: relative; transition: background 0.15s; }
 .cal-dia:hover:not(:disabled):not(.sel) { background: var(--areia); }
@@ -482,6 +497,9 @@ h3 { font-size: 1.45rem; }
     :root { --altura-topo: 64px; }
 
     /* Cabeçalho compacto + menu ☰ */
+    /* Sem desfoque no telemóvel: o backdrop-filter faz o menu (position: fixed) ficar preso
+       à altura do cabeçalho em vez de ocupar o ecrã todo. */
+    .topo { backdrop-filter: none; background: var(--creme); }
     .topo-logo img { height: 46px; width: 46px; }
     .menu-botao {
         display: flex; flex-direction: column; justify-content: center; gap: 6px;
@@ -523,7 +541,8 @@ h3 { font-size: 1.45rem; }
 
     /* Cartões deslizam com o dedo, mostrando um pedaço do seguinte */
     .deslizar { grid-auto-columns: 75%; gap: 14px; margin-right: -6%; padding-right: 6%; }
-    .carrossel .deslizar { grid-auto-columns: 88%; }
+    /* cada avaliação com a altura do seu texto (sem grandes espaços vazios nas curtas) */
+    .carrossel .deslizar { grid-auto-columns: 88%; align-items: start; }
     .carrossel-seta { display: none; }
 
     .reserva-direta { padding: 70px 5%; }
@@ -554,7 +573,9 @@ h3 { font-size: 1.45rem; }
     }
     .galeria::-webkit-scrollbar { display: none; }
     .galeria img { scroll-snap-align: start; }
-    .comodidades { grid-template-columns: 1fr; }
+    /* comodidades em 2 colunas: lista mais curta */
+    .comodidades { grid-template-columns: 1fr 1fr; gap: 0 18px; }
+    .comodidades li { padding: 12px 0 12px 22px; font-size: 0.9rem; line-height: 1.45; }
     .faixa-reservar { padding: 60px 6%; }
 
     .regiao-bloco { grid-template-columns: 1fr; gap: 26px; }
@@ -568,6 +589,12 @@ h3 { font-size: 1.45rem; }
 
     .reservar-topo { padding: 50px 6% 50px; }
     .reservar-botoes { flex-direction: column; }
+    /* Nota do Google numa só linha: a letra acompanha a largura do ecrã */
+    .plataforma { font-size: min(0.85rem, 3.3vw); padding: 6px 12px; white-space: nowrap; }
+    .plataforma b { letter-spacing: 0; }
+    .reservar-opcoes { grid-template-columns: 1fr; gap: 28px; }
+    .opcao { padding: 28px 22px 24px; }
+    .opcao .btn { align-self: stretch; }
     .passos { grid-template-columns: 1fr; }
     .resumo { grid-template-columns: 1fr 1fr; }
     .inclui { grid-template-columns: 1fr; }

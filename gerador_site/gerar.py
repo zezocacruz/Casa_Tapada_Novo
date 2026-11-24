@@ -19,6 +19,16 @@ SAIDA = os.path.abspath(os.path.join(AQUI, "..", "codigo_git_NOVO"))
 sys.path.insert(0, os.path.join(AQUI, "textos"))
 
 LINGUAS = ["pt", "en", "es", "fr"]
+
+# Medidas das fotos (largura, altura da versão grande), escritas pelo otimizar_fotos.py
+with open(os.path.join(AQUI, "fotos.json"), encoding="utf-8") as _fh:
+    MEDIDAS = json.load(_fh)
+
+# Largura com que as fotos aparecem no ecrã (o browser escolhe a versão pequena ou a grande)
+ECRA_INTEIRO = "100vw"
+TAM_CARTAO = "(max-width: 768px) 75vw, 25vw"
+TAM_GALERIA = "(max-width: 768px) 75vw, 22vw"
+TAM_METADE = "(max-width: 768px) 90vw, 45vw"
 PAGINAS = ["index.html", "casa.html", "regiao.html", "historia.html", "reservar.html", "legal.html"]
 
 # ---------------------------------------------------------------- dados fixos
@@ -28,6 +38,11 @@ EMAIL = "casadatapadaturismo@gmail.com"
 EMAIL_RECLAMACOES = "casadatapadaturismo@gmail.com"
 INSTAGRAM = "https://www.instagram.com/casadatapadaturismo/"
 AIRBNB = "https://www.airbnb.pt/rooms/1791404531724363427"
+# Perfil "Casa da Tapada Turismo Rural" no Google Maps (avaliações públicas)
+GOOGLE_AVALIACOES = "https://maps.google.com/?cid=9964221634762812004"
+# Mudar para True quando o anúncio do Airbnb já tiver avaliações:
+# volta a aparecer o botão "Airbnb" junto às avaliações da página inicial.
+AIRBNB_TEM_AVALIACOES = False
 BOOKING = ""      # pôr aqui o link quando o anúncio estiver ativo
 FACEBOOK = "https://www.facebook.com/share/1MHd3AVH89/"     # pôr aqui o link do Facebook
 MORADA_MAPA = "Tapada, 6230-130 Atalaia do Campo, Fundão, Portugal"
@@ -68,9 +83,23 @@ class Pag:
         self.T = importlib.import_module(lingua).T
         self.raiz = "" if lingua == "pt" else "../"
 
-    def foto(self, f):
-        nome = "logo.jpeg" if f == "logo" else f + ".jpg"
-        return f"{self.raiz}fotos/{nome}"
+    def foto(self, f, pequena=False):
+        """Caminho da foto. As fotos são WebP criadas pelo otimizar_fotos.py."""
+        if f == "logo":
+            return f"{self.raiz}fotos/logo.jpeg"
+        if f not in MEDIDAS:
+            sys.exit(f"Falta a foto {f}: põe-na em gerador_site/fotos_base/ e corre python otimizar_fotos.py")
+        return f"{self.raiz}fotos/{f}{'-800' if pequena else ''}.webp"
+
+    def srcset(self, f):
+        """As duas versões da foto, para o browser escolher a mais leve que chega."""
+        return f"{self.foto(f, True)} 800w, {self.foto(f)} {MEDIDAS[f][0]}w"
+
+    def img(self, f, sizes, alt=None, extra='loading="lazy"'):
+        """<img> com versão pequena (telemóvel, cartões) e grande (PC, ampliação).
+        sizes = largura com que a foto aparece no ecrã, para o browser escolher."""
+        alt = self.alt(f) if alt is None else alt
+        return f'<img src="{self.foto(f)}" srcset="{self.srcset(f)}" sizes="{sizes}" alt="{alt}" {extra}'.rstrip() + ">"
 
     def alt(self, f):
         return esc_attr(self.T["alts"].get(f, ""))
@@ -219,7 +248,7 @@ def rodape(c):
 def pagina_topo(c, d, foto):
     return f'''
         <section class="pagina-topo">
-            <img src="{c.foto(foto)}" alt="" class="pagina-topo-img">
+            {c.img(foto, ECRA_INTEIRO, alt="", extra='class="pagina-topo-img"')}
             <div class="pagina-topo-conteudo">
                 <p class="sobretitulo">{d["sobre"]}</p>
                 <h1>{d["titulo"]}</h1>
@@ -247,12 +276,12 @@ def faixa(d):
 
 def plataformas(c):
     T = c.T
-    booking = (f'<a class="plataforma" href="{BOOKING}" target="_blank" rel="noopener">Booking.com</a>' if BOOKING
-               else f'<span class="plataforma">Booking.com · {T["em_breve"]}</span>')
+    # O Booking só aparece quando houver link (BOOKING preenchido lá em cima)
+    booking = (f'\n                    <a class="plataforma" href="{BOOKING}" target="_blank" rel="noopener">Booking.com</a>' if BOOKING else "")
+    # O Airbnb só aparece aqui quando o anúncio tiver avaliações (AIRBNB_TEM_AVALIACOES lá em cima)
+    airbnb = (f'\n                    <a class="plataforma" href="{AIRBNB}" target="_blank" rel="noopener">Airbnb ↗</a>' if AIRBNB_TEM_AVALIACOES else "")
     return f'''                <div class="plataformas">
-                    <span class="plataforma"><b>★★★★★</b> Google</span>
-                    <a class="plataforma" href="{AIRBNB}" target="_blank" rel="noopener">Airbnb ↗</a>
-                    {booking}
+                    <a class="plataforma" href="{GOOGLE_AVALIACOES}" target="_blank" rel="noopener"><b>★★★★★</b> {T["index"]["aval_google"]} ↗</a>{airbnb}{booking}
                 </div>
 '''
 
@@ -276,8 +305,8 @@ def hero_slides(c):
     for n, (pc, mov, rotulo, link) in enumerate(hero_lista(c)):
         carregar = 'fetchpriority="high"' if n == 0 else 'loading="lazy"'
         out.append(f'''            <picture class="hero-slide{" ativo" if n == 0 else ""}" data-rotulo="{rotulo}" data-link="{link}">
-                <source media="(max-width: 768px)" srcset="{c.foto(mov)}">
-                <img src="{c.foto(pc)}" alt="{c.alt(pc)}" {carregar}>
+                <source media="(max-width: 768px)" srcset="{c.srcset(mov)}" sizes="{ECRA_INTEIRO}">
+                {c.img(pc, ECRA_INTEIRO, extra=carregar)}
             </picture>''')
     return "\n".join(out)
 
@@ -286,12 +315,12 @@ def p_index(c):
     destaques = "\n".join(f'            <div class="destaque"><strong>{a}</strong><span>{b}</span></div>' for a, b in I["destaques"])
     cartoes = "\n".join(
         f'''                <a href="casa.html#{anc}" class="cartao-foto">
-                    <img src="{c.foto(f)}" alt="{c.alt(f)}" loading="lazy">
+                    {c.img(f, TAM_CARTAO)}
                     <span>{nome}</span>
                 </a>''' for anc, f, nome in I["casa_cartoes"])
     momentos = "\n".join(
         f'''                <article class="momento">
-                    <img src="{c.foto(f)}" alt="{c.alt(f)}" loading="lazy">
+                    {c.img(f, TAM_CARTAO)}
                     <h3>{h}</h3>
                     <p>{p}</p>
                 </article>''' for f, h, p in I["momentos"])
@@ -308,7 +337,7 @@ def p_index(c):
                 </a>''' for a, h, p in I["reg_cartoes"])
     faq = "\n".join(f'''                <details>
                     <summary>{q}</summary>
-                    <p>{a}</p>
+                    <p>{a.replace("{AIRBNB}", AIRBNB)}</p>
                 </details>''' for q, a in I["faq"])
     lang = c.l
     return f'''
@@ -338,8 +367,8 @@ def p_index(c):
                 <a href="historia.html" class="link-seta">{I["bv_link"]}</a>
             </div>
             <div class="boas-vindas-fotos">
-                <img src="{c.foto("f44")}" alt="{c.alt("f44")}" loading="lazy">
-                <img src="{c.foto("f8")}" alt="{c.alt("f8")}" loading="lazy">
+                {c.img("f44", "(max-width: 768px) 45vw, 22vw")}
+                {c.img("f8", "(max-width: 768px) 45vw, 22vw")}
             </div>
         </section>
 
@@ -380,7 +409,7 @@ def p_index(c):
 
         <!-- ===== 7. RESERVAR DIRETAMENTE ===== -->
         <section class="reserva-direta">
-            <img src="{c.foto("f73")}" alt="" class="reserva-direta-fundo" loading="lazy">
+            {c.img("f73", ECRA_INTEIRO, alt="", extra='class="reserva-direta-fundo" loading="lazy"')}
             <div class="reserva-direta-caixa">
                 <p class="sobretitulo">{I["rd_sobre"]}</p>
                 <h2>{I["rd_titulo"]}</h2>
@@ -389,7 +418,10 @@ def p_index(c):
                     <a href="{wa(T["wa_info"])}" class="btn btn-principal" target="_blank" rel="noopener">WhatsApp</a>
                     <a href="mailto:{EMAIL}?subject={quote(T["email_assunto"])}" class="btn btn-contorno-escuro">Email</a>
                 </div>
-                <p class="nota">{I["rd_airbnb"]} <a href="{AIRBNB}" target="_blank" rel="noopener">{T["btn_airbnb"]}</a></p>
+                <div class="rd-airbnb">
+                    <p>{I["rd_airbnb"]}</p>
+                    <a href="{AIRBNB}" class="btn btn-airbnb" target="_blank" rel="noopener">{T["btn_airbnb"]} ↗</a>
+                </div>
             </div>
         </section>
 
@@ -437,7 +469,7 @@ def p_index(c):
 '''
 
 def galeria(c, fotos):
-    return "\n".join(f'                <img src="{c.foto(f)}" alt="{c.alt(f)}" loading="lazy">' for f in fotos)
+    return "\n".join(f'                {c.img(f, TAM_GALERIA)}' for f in fotos)
 
 def p_casa(c):
     T = c.T; C = T["casa"]
@@ -514,7 +546,7 @@ def p_regiao(c):
     sab = "\n".join(f"                <p>{p}</p>" for p in R["sabores_p"])
     corpo += f'''
         <section class="seccao regiao-bloco seccao-areia" id="sabores">
-            <img src="{c.foto("f24")}" alt="{c.alt("f24")}" loading="lazy">
+            {c.img("f24", TAM_METADE)}
             <div class="regiao-bloco-texto">
                 <p class="sobretitulo">{R["sabores_sobre"]}</p>
                 <h2>{R["sabores_titulo"]}</h2>
@@ -573,7 +605,7 @@ def p_historia(c):
         for p in paras:
             corpo += f'            <p>{p}</p>\n'
         if foto:
-            corpo += f'            <img src="{c.foto(foto)}" alt="{c.alt(foto)}" class="historia-img" loading="lazy">\n'
+            corpo += "            " + c.img(foto, "(max-width: 768px) 90vw, 720px", extra='class="historia-img" loading="lazy"') + "\n"
     corpo += f'''            <p class="historia-assinatura">{H["assinatura"]}<br><span>{H["assinatura_nome"]}</span></p>
         </article>
 
@@ -600,8 +632,9 @@ def p_reservar(c):
                     </ul>
                 </details>''')
     cond = "\n".join(cond)
-    booking = (f'<a href="{BOOKING}" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Booking.com</a>' if BOOKING
-               else f'<span class="plataforma">Booking.com · {T["em_breve"]}</span>')
+    # O Booking só aparece quando houver link (BOOKING preenchido lá em cima)
+    booking = (f'<a href="{BOOKING}" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Booking.com</a>' if BOOKING else "")
+    O = R["opcoes"]
     # dados para o calendário (lidos pelo main.js)
     dados = {
         "ocupadas": [],
@@ -616,6 +649,21 @@ def p_reservar(c):
             <p class="sobretitulo">{R["sobre"]}</p>
             <h1>{R["titulo"]}</h1>
             <p>{R["texto"]}</p>
+        </section>
+
+        <!-- ===== DUAS FORMAS DE RESERVAR ===== -->
+        <section class="reservar-opcoes" aria-label="{O["aria"]}">
+            <div class="opcao opcao-direta">
+                <p class="opcao-selo">{O["direto_selo"]}</p>
+                <h2>{O["direto_titulo"]}</h2>
+                <p>{O["direto_texto"]}</p>
+                <a href="#disponibilidade" class="btn btn-principal">{O["direto_btn"]}</a>
+            </div>
+            <div class="opcao">
+                <h2>{O["airbnb_titulo"]}</h2>
+                <p>{O["airbnb_texto"]}</p>
+                <a href="{AIRBNB}" class="btn btn-contorno-escuro" target="_blank" rel="noopener">{T["btn_airbnb"]} ↗</a>
+            </div>
         </section>
 
         <!-- ===== CALENDÁRIO + PEDIDO ===== -->
@@ -679,7 +727,7 @@ def p_reservar(c):
 {resumo}
             </div>
             <div class="inclui">
-                <img src="{c.foto("f2")}" alt="{c.alt("f2")}" loading="lazy">
+                {c.img("f2", "(max-width: 768px) 90vw, 260px")}
                 <div>
                     <h3>{R["inclui_titulo"]}</h3>
                     <ul>
@@ -698,7 +746,7 @@ def p_reservar(c):
 
         <section class="seccao">
 {cab("", R["plataformas_titulo"], R["plataformas_texto"])}            <div class="reservar-botoes">
-                <a href="{AIRBNB}" class="btn btn-contorno-escuro" target="_blank" rel="noopener">{T["btn_airbnb"]}</a>
+                <a href="{AIRBNB}" class="btn btn-contorno-escuro" target="_blank" rel="noopener">{T["btn_airbnb"]} ↗</a>
                 {booking}
             </div>
         </section>

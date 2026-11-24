@@ -13,6 +13,9 @@ codigo_git/
 casa_da_tapada_cartao_A6.*
 Livro_Reclama*.pdf
 
+# Definições pessoais do Claude Code (o .claude/launch.json vai para o Git)
+.claude/settings.local.json
+
 # Ficheiros temporários do Python
 __pycache__/
 *.pyc

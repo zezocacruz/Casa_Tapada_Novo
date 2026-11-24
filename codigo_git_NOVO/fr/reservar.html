@@ -62,6 +62,21 @@
             <p>Choisissez vos dates et envoyez-nous votre demande. Nous vous répondons au plus vite avec la disponibilité et le prix.</p>
         </section>
 
+        <!-- ===== DUAS FORMAS DE RESERVAR ===== -->
+        <section class="reservar-opcoes" aria-label="Façons de réserver">
+            <div class="opcao opcao-direta">
+                <p class="opcao-selo">Plus avantageux</p>
+                <h2>Directement avec nous</h2>
+                <p>Pas d'intermédiaire ni de commission de plateforme. Choisissez vos dates sur le calendrier et envoyez votre demande par WhatsApp ou par e-mail.</p>
+                <a href="#disponibilidade" class="btn btn-principal">Choisir les dates</a>
+            </div>
+            <div class="opcao">
+                <h2>Sur Airbnb</h2>
+                <p>Vous pouvez aussi réserver sur Airbnb. La réservation et le paiement se font sur la plateforme, selon les conditions d'Airbnb.</p>
+                <a href="https://www.airbnb.pt/rooms/1791404531724363427" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Réserver sur Airbnb ↗</a>
+            </div>
+        </section>
+
         <!-- ===== CALENDÁRIO + PEDIDO ===== -->
         <section class="seccao reserva-calendario" id="disponibilidade">
             <div class="cal-caixa" id="calendario">
@@ -82,8 +97,8 @@
 
             <form class="pedido-caixa" id="pedido" onsubmit="return false">
                 <div class="pedido-datas">
-                    <label>Arrivée<input type="text" id="pedIn" readonly placeholder="Choisir sur le calendrier"></label>
-                    <label>Départ<input type="text" id="pedOut" readonly placeholder="Choisir sur le calendrier"></label>
+                    <label>Arrivée<input type="text" id="pedIn" readonly placeholder="Choisir la date"></label>
+                    <label>Départ<input type="text" id="pedOut" readonly placeholder="Choisir la date"></label>
                 </div>
                 <p class="pedido-noites" id="pedNoites"></p>
                 <div class="pedido-datas">
@@ -141,7 +156,7 @@
                 <div><strong>Paiement</strong><span>MB WAY ou virement</span></div>
             </div>
             <div class="inclui">
-                <img src="../fotos/f2.jpg" alt="Panier de bienvenue avec des produits de la région" loading="lazy">
+                <img src="../fotos/f2.webp" srcset="../fotos/f2-800.webp 800w, ../fotos/f2.webp 1200w" sizes="(max-width: 768px) 90vw, 260px" alt="Panier de bienvenue avec des produits de la région" loading="lazy">
                 <div>
                     <h3>Le séjour comprend</h3>
                     <ul>
@@ -215,17 +230,17 @@
                     </ul>
                 </details>
             </div>
-            <p class="nota centrado">En réservant, vous acceptez ces conditions et les <a href="legal.html#termos">Conditions générales</a>.</p>
+            <p class="nota centrado">En réservant directement auprès de nous, vous acceptez ces conditions et les <a href="legal.html#termos">Conditions générales</a>. Pour les réservations faites sur Airbnb, le paiement et l'annulation suivent les règles de la plateforme.</p>
         </section>
 
         <section class="seccao">
             <div class="cabecalho-seccao">
-                <h2>Vous nous trouverez aussi sur les plateformes</h2>
-                <p class="cabecalho-texto">Si vous préférez, vous pouvez réserver via Airbnb. En réservant directement auprès de nous, vous échangez sans intermédiaire avec ceux qui prennent soin de la maison.</p>
+                <h2>Vous préférez réserver sur Airbnb ?</h2>
+                <p class="cabecalho-texto">La Casa da Tapada est aussi sur Airbnb, où la réservation et le paiement suivent les conditions de la plateforme. En réservant directement auprès de nous, vous êtes gagnant : pas d'intermédiaire ni de commission.</p>
             </div>
             <div class="reservar-botoes">
-                <a href="https://www.airbnb.pt/rooms/1791404531724363427" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Réserver sur Airbnb</a>
-                <span class="plataforma">Booking.com · bientôt</span>
+                <a href="https://www.airbnb.pt/rooms/1791404531724363427" class="btn btn-contorno-escuro" target="_blank" rel="noopener">Réserver sur Airbnb ↗</a>
+                
             </div>
         </section>
 

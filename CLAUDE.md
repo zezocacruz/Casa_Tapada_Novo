@@ -36,10 +36,13 @@ O Rodrigo trabalha em dois computadores e não usa o Git sozinho: é o Claude qu
   - `gerar.py` tem os modelos das páginas e os dados fixos: telefone, email, Airbnb, Booking (vazio por agora), Facebook, RNAL e as fotos que passam no topo (`HERO`).
   - `textos/pt.py`, `en.py`, `es.py` e `fr.py` têm todos os textos. As 4 línguas têm de ter sempre as mesmas chaves.
   - Para gerar o site: `python gerar.py`. Escreve as 24 páginas na pasta `codigo_git_NOVO`: o português na raiz e o inglês, o espanhol e o francês nas pastas `en/`, `es/` e `fr/`.
+  - `fotos_base/`: as fotos do site em JPG, tal como chegaram (f1.jpg, f2.jpg, ..., logo.jpeg). **Não vão para o site diretamente.**
+  - `otimizar_fotos.py`: cria as versões leves em `codigo_git_NOVO/fotos/` (`fNN.webp` até 1600 px, `fNN-800.webp` para telemóvel e cartões, `f71.jpg` para a partilha nas redes e `logo.jpeg` com 256 px) e escreve as medidas em `fotos.json`. Só se corre quando se muda ou acrescenta uma foto, e precisa do Pillow (`python -m pip install pillow`).
+  - Para pôr uma foto nova: copiar o JPG para `fotos_base/`, correr `python otimizar_fotos.py`, usar o nome no `gerar.py` e correr `python gerar.py`. Nas páginas, as fotos entram com `c.img(...)`, que deixa o browser escolher a versão pequena ou a grande.
 - `codigo_git_NOVO/`: o site pronto. **É esta pasta que o GitHub publica**, sozinho, a cada push (ver «Repositório e publicação»).
   - Os `.html` são gerados pelo `gerar.py` e não devem ser editados à mão, porque as alterações perdem-se na geração seguinte.
   - `style.css` e `main.js` são editados diretamente.
-  - `fotos/` deve ter só as fotos que o site usa.
+  - `fotos/` tem só as versões leves criadas pelo `otimizar_fotos.py`. Não se põem lá fotos à mão.
   - A pasta `fotos_git/` lá dentro é uma cópia antiga que o site não usa e não deve ir para o GitHub.
 - `codigo_git/`: site antigo, guardado só para consulta. Não vai para o GitHub.
 - `imagens/`, `Fotos_Tapada/` e `Fotos_Tapada.zip`: fotos originais. **Não apagar.** Não vão para o GitHub.
@@ -48,6 +51,7 @@ O Rodrigo trabalha em dois computadores e não usa o Git sozinho: é o Claude qu
 ## Design
 
 - **Cores (variáveis no topo do `style.css`):** creme `#faf7f2`, areia `#f1ece3`, verde-sálvia `#6f7d5c`, dourado `#c2a26b`, texto `#3d3a35`, rodapé `#3f4a3c`.
+  - Para **texto pequeno em dourado** (sobretítulos como "A CASA", etiquetas, datas) usa-se `--dourado-texto` (`#7f6232`), mais escuro, para se ler bem. O dourado claro fica para estrelas e enfeites.
 - **Letra:** Cormorant Garamond nos títulos e Inter no texto.
 - **Telemóvel (até 768px) com estrutura própria:**
   - menu ☰ em ecrã inteiro, com ícones e línguas;
@@ -60,6 +64,7 @@ O Rodrigo trabalha em dois computadores e não usa o Git sozinho: é o Claude qu
 - **Fotos do topo da página inicial:** trocam sozinhas de 6 em 6 segundos e também com setas ou com o dedo.
 - **Cabeçalho no PC:** ícones do Facebook, Instagram e telefone, globo com a lista de línguas e o botão Reservar.
 - **Página Reservar:**
+  - no topo, duas caixas: "Diretamente connosco" (realçada, com o selo "Fica a ganhar": sem intermediários nem comissões) e "Pelo Airbnb";
   - calendário só para escolher datas. **Não mostra dias ocupados.** Por baixo está a frase "A disponibilidade da reserva será confirmada pelo proprietário.";
   - formulário que monta a mensagem para o WhatsApp ou para o email;
   - preço "sob consulta". **Não mostrar preços por noite.**
@@ -69,6 +74,7 @@ O Rodrigo trabalha em dois computadores e não usa o Git sozinho: é o Claude qu
 
 ## Ainda pendente
 
-- Link do Booking: preencher `BOOKING = ""` no `gerar.py` quando o anúncio estiver ativo.
+- Link do Booking: preencher `BOOKING = ""` no `gerar.py` quando o anúncio estiver ativo. Até lá o Booking não aparece no site.
+- Domínio próprio (por exemplo `casadatapada.pt`): o Rodrigo compra-o quando o site estiver acabado. Nessa altura, mudar o `URL_BASE` no `gerar.py` e ligar o domínio no GitHub Pages.
 - Confirmar os nomes dos cafés e das lojas na página Região.
 - Fotos dos locais da região (opcional). Só se podem usar fotos próprias ou com autorização.
