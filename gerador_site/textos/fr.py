@@ -8,7 +8,7 @@ T = {
     "nav": {
         "inicio": "Accueil", "casa": "La Maison", "regiao": "La Région", "historia": "Notre histoire", "reservar": "Réserver",
         "ligar": "Appeler", "abrir": "Ouvrir le menu", "fechar": "Fermer le menu",
-        "aria_menu": "Menu principal", "aria_linguas": "Choisir la langue",
+        "aria_menu": "Menu principal", "aria_linguas": "Choisir la langue", "aria_paginas": "Pages",
     },
     "anterior": "Précédent", "seguinte": "Suivant", "fechar": "Fermer",
     "em_breve": "bientôt",

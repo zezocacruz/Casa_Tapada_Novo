@@ -54,8 +54,10 @@ O Rodrigo trabalha em dois computadores e não usa o Git sozinho: é o Claude qu
   - Para **texto pequeno em dourado** (sobretítulos como "A CASA", etiquetas, datas) usa-se `--dourado-texto` (`#7f6232`), mais escuro, para se ler bem. O dourado claro fica para estrelas e enfeites.
 - **Letra:** Cormorant Garamond nos títulos e Inter no texto.
 - **Telemóvel (até 768px) com estrutura própria:**
-  - menu ☰ em ecrã inteiro, com ícones e línguas;
-  - barra fixa em baixo com Ligar, WhatsApp e Reservar;
+  - cabeçalho com o logótipo grande (64 px), o ícone do telefone e o menu ☰;
+  - por baixo, uma linha fixa sempre à vista com Início · A Casa · Região · História (a página atual sublinhada a dourado);
+  - menu ☰ em ecrã inteiro, com Reservar, ícones e línguas;
+  - botão redondo do WhatsApp em baixo à direita (não há barra fixa em baixo: o Rodrigo não gostou);
   - cartões e galerias a deslizar;
   - setas e deslizar do dedo nas fotos do topo.
 

@@ -251,8 +251,8 @@ a.plataforma:hover { border-color: var(--salvia); color: var(--salvia); }
 .rodape-legal a:hover { text-decoration: underline; }
 .btn-reclamacoes { display: inline-block; border: 1px solid var(--dourado); padding: 9px 22px; border-radius: 50px; font-weight: 600; }
 
-/* ---------- Barra fixa do telemóvel ---------- */
-.barra-movel { display: none; }
+/* ---------- Só no telemóvel: páginas à vista, telefone no cabeçalho e botão do WhatsApp ---------- */
+.nav-movel, .topo-ligar, .wa-flutuante { display: none; }
 
 /* =========================================================
    PÁGINAS INTERNAS
@@ -494,13 +494,42 @@ a.plataforma:hover { border-color: var(--salvia); color: var(--salvia); }
    TELEMÓVEL (até 768px): estrutura própria
    ========================================================= */
 @media (max-width: 768px) {
-    :root { --altura-topo: 64px; }
+    :root { --altura-topo: 80px; --altura-nav-movel: 42px; }
 
-    /* Cabeçalho compacto + menu ☰ */
+    /* Cabeçalho + menu ☰ */
     /* Sem desfoque no telemóvel: o backdrop-filter faz o menu (position: fixed) ficar preso
        à altura do cabeçalho em vez de ocupar o ecrã todo. */
     .topo { backdrop-filter: none; background: var(--creme); }
-    .topo-logo img { height: 46px; width: 46px; }
+    .topo.com-sombra { box-shadow: none; }
+    .topo-logo img { height: 64px; width: 64px; }
+
+    /* Telefone ao lado do ☰ */
+    .topo-ligar { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-left: auto; margin-right: 4px; color: var(--salvia-escuro); }
+    .topo-ligar svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Linha com as páginas, sempre à vista por baixo do cabeçalho */
+    .nav-movel {
+        display: flex; justify-content: space-evenly; align-items: center; gap: 4px;
+        position: sticky; top: var(--altura-topo); z-index: 95;
+        height: var(--altura-nav-movel); padding: 0 8px;
+        background: var(--creme); border-bottom: 1px solid var(--linha);
+        overflow-x: auto; scrollbar-width: none;
+    }
+    .nav-movel::-webkit-scrollbar { display: none; }
+    .nav-movel a { position: relative; padding: 8px 4px; text-decoration: none; white-space: nowrap; font-size: min(0.9rem, 3.8vw); font-weight: 500; color: var(--texto); }
+    .nav-movel a.ativo { color: var(--salvia-escuro); }
+    .nav-movel a.ativo::after { content: ''; position: absolute; left: 4px; right: 4px; bottom: 3px; height: 2px; border-radius: 2px; background: var(--dourado); }
+    [id] { scroll-margin-top: calc(var(--altura-topo) + var(--altura-nav-movel) + 70px); }
+
+    /* Botão redondo do WhatsApp, em baixo à direita */
+    .wa-flutuante {
+        display: flex; align-items: center; justify-content: center;
+        position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 90;
+        width: 56px; height: 56px; border-radius: 50%;
+        background: var(--salvia); box-shadow: 0 4px 14px rgba(40, 40, 30, 0.22);
+    }
+    .wa-flutuante svg { width: 28px; height: 28px; fill: #fff; }
+    .menu-aberto .wa-flutuante { display: none; }
     .menu-botao {
         display: flex; flex-direction: column; justify-content: center; gap: 6px;
         width: 44px; height: 44px; background: none; border: 0; cursor: pointer; z-index: 120;
@@ -521,9 +550,9 @@ a.plataforma:hover { border-color: var(--salvia); color: var(--salvia); }
     .menu-aberto .menu { opacity: 1; pointer-events: auto; }
     .menu-aberto { overflow: hidden; }
 
-    /* Entrada ocupa o ecrã todo, com espaço para a barra de baixo */
-    .hero { height: calc(100svh - var(--altura-topo)); min-height: 480px; }
-    .hero-conteudo { padding: 0 6% 110px; }
+    /* Entrada ocupa o resto do ecrã (por baixo do cabeçalho e da linha das páginas) */
+    .hero { height: calc(100svh - var(--altura-topo) - var(--altura-nav-movel)); min-height: 480px; }
+    .hero-conteudo { padding: 0 6% 96px; }
     .hero-botoes .btn { flex: 1; padding: 14px 14px; white-space: nowrap; }
     .hero-seta { top: 38%; width: 40px; height: 40px; font-size: 1.6rem; }
 
@@ -553,14 +582,14 @@ a.plataforma:hover { border-color: var(--salvia); color: var(--salvia); }
     .como-chegar { grid-template-columns: 1fr; gap: 30px; }
     .mapa { height: 280px; }
 
-    .rodape { padding-bottom: 100px; }
+    .rodape { padding-bottom: 96px; }
     .rodape-grelha { grid-template-columns: 1fr 1fr; }
     .rodape-grelha > div:first-child { grid-column: span 2; }
 
     /* Páginas internas no telemóvel */
     .pagina-topo { height: 52svh; min-height: 360px; }
     .pagina-topo-conteudo { padding-bottom: 40px; }
-    .saltar { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding: 12px 6%; }
+    .saltar { top: calc(var(--altura-topo) + var(--altura-nav-movel)); justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding: 12px 6%; }
     .saltar::-webkit-scrollbar { display: none; }
     .saltar-legal { flex-wrap: wrap; justify-content: center; padding: 0 0 24px; }
 
@@ -625,21 +654,6 @@ a.plataforma:hover { border-color: var(--salvia); color: var(--salvia); }
     .pedido-caixa { position: static; }
 
     .lightbox img { max-width: 100vw; border-radius: 0; }
-
-    /* Barra fixa em baixo */
-    .barra-movel {
-        display: grid; grid-template-columns: 1fr 1fr 1.3fr;
-        position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
-        background: var(--creme); border-top: 1px solid var(--linha);
-        padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
-        gap: 8px;
-    }
-    .barra-movel a {
-        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-        text-decoration: none; font-size: 0.75rem; font-weight: 500; color: var(--texto); padding: 6px 0;
-    }
-    .barra-movel svg { width: 22px; height: 22px; fill: var(--salvia); }
-    .barra-movel .barra-reservar { background: var(--salvia); color: #fff; border-radius: 50px; font-size: 0.95rem; font-weight: 600; }
 }
 
 /* Tablet: cartões em 2 colunas e meia */

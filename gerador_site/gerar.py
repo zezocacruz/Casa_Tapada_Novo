@@ -156,6 +156,8 @@ def topo(c):
              ("regiao.html", T["nav"]["regiao"]), ("historia.html", T["nav"]["historia"])]
     ativo = ' class="ativo"'
     links = "\n".join(f'            <a href="{h}"{ativo if h == c.p else ""}>{t}</a>' for h, t in itens)
+    # A mesma lista, sempre visível por baixo do cabeçalho no telemóvel
+    links_movel = "\n".join(f'        <a href="{h}"{ativo if h == c.p else ""}>{t}</a>' for h, t in itens)
     res_cls = "menu-reservar ativo" if c.p == "reservar.html" else "menu-reservar"
     linguas = []
     for l in LINGUAS:
@@ -184,10 +186,16 @@ def topo(c):
             </div>
             <a href="reservar.html" class="{res_cls}">{T["nav"]["reservar"]}</a>
         </nav>
+        <a href="tel:{TEL}" class="topo-ligar" aria-label="{T["nav"]["ligar"]} {TEL_VISIVEL}">{ICONE_TELEFONE}</a>
         <button class="menu-botao" id="menuBotao" aria-label="{T["nav"]["abrir"]}" data-abrir="{T["nav"]["abrir"]}" data-fechar="{T["nav"]["fechar"]}" aria-expanded="false" aria-controls="menu">
             <span></span><span></span><span></span>
         </button>
     </header>
+
+    <!-- ===== PÁGINAS SEMPRE À VISTA (só telemóvel) ===== -->
+    <nav class="nav-movel" aria-label="{T["nav"]["aria_paginas"]}">
+{links_movel}
+    </nav>
 '''
 
 def rodape(c):
@@ -227,18 +235,8 @@ def rodape(c):
         </div>
     </footer>
 
-    <!-- ===== BARRA FIXA (só telemóvel) ===== -->
-    <nav class="barra-movel" aria-label="{R["aria_barra"]}">
-        <a href="tel:{TEL}">
-            {SVG_TEL}
-            {T["nav"]["ligar"]}
-        </a>
-        <a href="{wa(T["wa_info"])}" target="_blank" rel="noopener">
-            {SVG_WA}
-            WhatsApp
-        </a>
-        <a href="reservar.html" class="barra-reservar">{T["nav"]["reservar"]}</a>
-    </nav>
+    <!-- ===== BOTÃO DO WHATSAPP (só telemóvel) ===== -->
+    <a href="{wa(T["wa_info"])}" class="wa-flutuante" target="_blank" rel="noopener" aria-label="WhatsApp">{SVG_WA}</a>
 
     <script src="{c.raiz}main.js"></script>
 </body>

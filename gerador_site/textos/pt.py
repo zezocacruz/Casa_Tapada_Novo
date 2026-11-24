@@ -9,7 +9,7 @@ T = {
     "nav": {
         "inicio": "Início", "casa": "A Casa", "regiao": "Região", "historia": "História", "reservar": "Reservar",
         "ligar": "Ligar", "abrir": "Abrir menu", "fechar": "Fechar menu",
-        "aria_menu": "Menu principal", "aria_linguas": "Escolher língua",
+        "aria_menu": "Menu principal", "aria_linguas": "Escolher língua", "aria_paginas": "Páginas",
     },
     "anterior": "Anterior", "seguinte": "Seguinte", "fechar": "Fechar",
     "em_breve": "em breve",
