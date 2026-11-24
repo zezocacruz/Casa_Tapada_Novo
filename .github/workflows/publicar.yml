@@ -39,7 +39,8 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Enviar a pasta do site
-        uses: actions/upload-pages-artifact@v5
+        # v4 e não v5: a v5 envia o pacote num formato que o deploy-pages ainda não encontra
+        uses: actions/upload-pages-artifact@v4
         with:
           path: codigo_git_NOVO
 
