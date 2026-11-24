@@ -1,0 +1,48 @@
+# Publica o site no GitHub Pages sempre que há um "git push" para o main.
+# Primeiro corre o gerador (gerador_site/gerar.py) e depois publica a pasta codigo_git_NOVO.
+# Também se pode correr à mão no separador "Actions" do GitHub.
+name: Publicar site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publicacao.outputs.page_url }}
+    steps:
+      - name: Buscar o projeto
+        uses: actions/checkout@v7
+
+      - name: Instalar o Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Gerar as páginas
+        run: python gerador_site/gerar.py
+
+      - name: Preparar o GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Enviar a pasta do site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: codigo_git_NOVO
+
+      - name: Publicar
+        id: publicacao
+        uses: actions/deploy-pages@v5

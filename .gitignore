@@ -1,0 +1,18 @@
+# Fotos originais e ficheiros pesados (ficam só no computador / numa cloud)
+Fotos_Tapada/
+Fotos_Tapada.zip
+imagens/
+*.zip
+
+# Cópia antiga que o site não usa
+codigo_git_NOVO/fotos_git/
+
+# O repositório é público: estes ficheiros já tinham sido apagados do GitHub
+# e ficam só no computador / numa cloud. (O site antigo continua no histórico do Git.)
+codigo_git/
+casa_da_tapada_cartao_A6.*
+Livro_Reclama*.pdf
+
+# Ficheiros temporários do Python
+__pycache__/
+*.pyc
